@@ -119,6 +119,7 @@ export default class Cache {
   }
 
   async readBlob(blobKey: FilePath) {
+    console.log('BLOBKEY', blobKey);
     let extension = Path.extname(blobKey);
     let data = await fs.readFile(Path.resolve(this.dir, blobKey), {
       encoding: extension === '.bin' ? null : 'utf8'

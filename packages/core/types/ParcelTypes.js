@@ -92,38 +92,36 @@ export type Dependency = {
   isEntry?: boolean,
   isOptional?: boolean,
   isIncluded?: boolean,
-  isConfig?: boolean,
   loc?: SourceLocation,
   env?: Environment,
   meta?: JSONObject
 };
 
-export type File = {
-  filePath: FilePath,
-  hash?: string
-};
-
-export type TransformerRequest = {
+export type TransformationRequest = {
   filePath: FilePath,
   env: Environment
 };
 
-export type Asset = {
-  id: string,
+export type TransformerMeta = {
+  name: string,
+  version: SemverRange,
+  config: {
+    hash: string,
+    files: Array<FilePath>
+  }
+};
+
+export type PipelineAsset = {
   filePath: FilePath,
   type: string,
-  hash: string,
-  output: AssetOutput,
+  hash?: string,
+  ast?: AST,
+  code: string,
+  sourceMap?: SourceMap,
   dependencies: Array<Dependency>,
   connectedFiles: Array<File>,
   env: Environment,
   meta?: JSONObject
-};
-
-export type AssetOutput = {
-  code: string,
-  map?: SourceMap,
-  [string]: Blob
 };
 
 export type AST = {
@@ -136,28 +134,9 @@ export type Config = JSONObject;
 export type SourceMap = JSONObject;
 export type Blob = string | Buffer;
 
-export type TransformerInput = {
-  filePath: FilePath,
-  code: string,
-  ast: ?AST,
-  env: Environment
-};
-
-export type TransformerOutput = {};
-
-export type TransformerResult = {
-  type: string,
-  code?: string,
-  ast?: ?AST,
-  dependencies?: Array<Dependency>,
-  connectedFiles?: Array<File>,
-  output?: AssetOutput,
-  env?: Environment,
-  meta?: JSONObject
-};
-
 export type ConfigOutput = {
   config: Config,
+  hash: string,
   files: Array<File>
 };
 
@@ -167,34 +146,25 @@ export type Transformer = {
   getConfig?: (filePath: FilePath, opts: CLIOptions) => Async<ConfigOutput>,
   canReuseAST?: (ast: AST, opts: CLIOptions) => boolean,
   parse?: (
-    asset: TransformerInput,
+    asset: PipelineAsset,
     config: ?Config,
     opts: CLIOptions
   ) => Async<?AST>,
   transform(
-    asset: TransformerInput,
+    asset: PipelineAsset,
     config: ?Config,
     opts: CLIOptions
-  ): Async<Array<TransformerResult>>,
+  ): Async<Array<PipelineAsset>>,
   generate?: (
-    asset: TransformerInput,
+    asset: PipelineAsset,
     config: ?Config,
     opts: CLIOptions
   ) => Async<AssetOutput>,
   postProcess?: (
-    assets: Array<Asset>,
+    assets: Array<PipelineAsset>,
     config: ?Config,
     opts: CLIOptions
-  ) => Async<Array<TransformerResult>>
-};
-
-export type CacheEntry = {
-  filePath: FilePath,
-  env: Environment,
-  hash: string,
-  assets: Array<Asset>,
-  initialAssets: ?Array<Asset>, // Initial assets, pre-post processing
-  connectedFiles: Array<File> // File-level dependencies, e.g. config files.
+  ) => Async<Array<PipelineAsset>>
 };
 
 // TODO: what do we want to expose here?

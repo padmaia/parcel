@@ -11,7 +11,7 @@ import type {
   Dependency,
   File,
   Target,
-  TransformerRequest
+  TransformationRequest
 } from '@parcel/types';
 import ResolverRunner from './ResolverRunner';
 import BundlerRunner from './BundlerRunner';
@@ -51,7 +51,7 @@ export default class Parcel {
   farm: WorkerFarm;
   targetResolver: TargetResolver;
   targets: Array<Target>;
-  runTransform: (file: TransformerRequest) => Promise<any>;
+  runTransformation: (req: TransformationRequest) => Promise<any>;
   runPackage: (bundle: Bundle) => Promise<any>;
 
   constructor({entries, cliOpts = {}}: ParcelOpts) {
@@ -88,7 +88,7 @@ export default class Parcel {
     this.targetResolver = new TargetResolver();
     this.targets = [];
 
-    this.runTransform = this.farm.mkhandle('runTransform');
+    this.runTransformation = this.farm.mkhandle('runTransformation');
     this.runPackage = this.farm.mkhandle('runPackage');
   }
 
@@ -186,15 +186,15 @@ export default class Parcel {
     }
   }
 
-  async transform(req: TransformerRequest, {signal, shallow}: BuildOpts) {
-    let cacheEntry = await this.runTransform(req);
+  async transform(req: TransformationRequest, {signal, shallow}: BuildOpts) {
+    let cacheEntry = await this.runTransformation(req);
 
     if (signal.aborted) throw abortError;
     let {
       addedFiles,
       removedFiles,
       newDeps
-    } = this.graph.resolveTransformerRequest(req, cacheEntry);
+    } = this.graph.resolveTransformationRequest(req, cacheEntry);
 
     if (this.watcher) {
       for (let file of addedFiles) {

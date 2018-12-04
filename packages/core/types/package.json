@@ -2,7 +2,7 @@
   "name": "@parcel/types",
   "version": "2.0.0",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "ParcelTypes.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/parcel-bundler/parcel.git"

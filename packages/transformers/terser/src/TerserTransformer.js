@@ -65,14 +65,11 @@ export default new Transformer({
       throw result.error;
     }
 
-    return [
-      {
-        type: 'js',
-        output: {
-          code: result.code,
-          map: sourceMap
-        }
-      }
-    ];
+    Object.assign(module, {
+      type: 'js',
+      code: result.code,
+      sourceMap: sourceMap || {}
+    });
+    return [module];
   }
 });

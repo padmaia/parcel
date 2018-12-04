@@ -49,7 +49,7 @@ export default new Transformer({
       version: '7.0.0',
       isDirty: false,
       program: parse(asset.code, {
-        filename: this.name,
+        sourceFilename: asset.filePath,
         allowReturnOutsideFunction: true,
         strictMode: false,
         sourceType: 'module',
@@ -64,7 +64,8 @@ export default new Transformer({
         {
           type: 'js',
           code: asset.code,
-          ast: asset.ast
+          ast: asset.ast,
+          dependencies: []
         }
       ];
     }
@@ -110,6 +111,11 @@ export default new Transformer({
       }
     }
 
+    // HACK for now
+    module.dependencies.map(dep => {
+      dep.env = module.env;
+    });
+
     // Do some transforms
     return [module];
   },
@@ -131,9 +137,10 @@ export default new Transformer({
       module.code
     );
 
-    return {
+    Object.assign(module, {
       code: generated.code,
       map: generated.map
-    };
+    });
+    return module;
   }
 });

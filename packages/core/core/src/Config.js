@@ -32,7 +32,9 @@ export default class Config {
   }
 
   async loadPlugins(plugins: Array<PackageName>) {
-    return Promise.all(plugins.map(pluginName => this.loadPlugin(pluginName)));
+    return await Promise.all(
+      plugins.map(pluginName => this.loadPlugin(pluginName))
+    );
   }
 
   async getResolvers(): Promise<Array<Resolver>> {

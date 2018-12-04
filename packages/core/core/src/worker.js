@@ -1,7 +1,12 @@
 // @flow
 
-import type {Bundle, CLIOptions, File, ParcelConfig} from '@parcel/types';
-import TransformerRunner from './TransformerRunner';
+import type {
+  Bundle,
+  CLIOptions,
+  TransformationRequest,
+  ParcelConfig
+} from '@parcel/types';
+import TransformationRunner from './TransformationRunner';
 import PackagerRunner from './PackagerRunner';
 import Config from './Config';
 
@@ -10,7 +15,7 @@ type Options = {
   cliOpts: CLIOptions
 };
 
-let transformerRunner: TransformerRunner | null = null;
+let transformationRunner: TransformationRunner | null = null;
 let packagerRunner: PackagerRunner | null = null;
 
 export function init({parcelConfig, cliOpts}: Options) {
@@ -18,7 +23,7 @@ export function init({parcelConfig, cliOpts}: Options) {
     parcelConfig,
     require.resolve('@parcel/config-default')
   );
-  transformerRunner = new TransformerRunner({
+  transformationRunner = new TransformationRunner({
     config,
     cliOpts
   });
@@ -28,12 +33,8 @@ export function init({parcelConfig, cliOpts}: Options) {
   });
 }
 
-export function runTransform(file: File) {
-  if (!transformerRunner) {
-    throw new Error('.runTransform() called before .init()');
-  }
-
-  return transformerRunner.transform(file);
+export function runTransformation(req: TransformationRequest) {
+  return transformationRunner.runTransformation(req);
 }
 
 export function runPackage(bundle: Bundle) {

@@ -7,7 +7,7 @@ import type {
   Asset,
   File,
   FilePath,
-  TransformerRequest,
+  TransformationRequest,
   Target,
   Environment
 } from '@parcel/types';
@@ -34,7 +34,7 @@ export const nodeFromFile = (file: File) => ({
   value: file
 });
 
-export const nodeFromTransformerRequest = (req: TransformerRequest) => ({
+export const nodeFromTransformationRequest = (req: TransformationRequest) => ({
   id: md5(`${req.filePath}:${JSON.stringify(req.env)}`),
   type: 'transformer_request',
   value: req
@@ -129,14 +129,14 @@ export default class AssetGraph extends Graph {
    * Marks a dependency as resolved, and connects it to a transformer
    * request node for the file it was resolved to.
    */
-  resolveDependency(dep: Dependency, req: TransformerRequest): DepUpdates {
+  resolveDependency(dep: Dependency, req: TransformationRequest): DepUpdates {
     let newRequest;
 
     let depNode = nodeFromDep(dep);
     this.incompleteNodes.delete(depNode.id);
     this.invalidNodes.delete(depNode.id);
 
-    let requestNode = nodeFromTransformerRequest(req);
+    let requestNode = nodeFromTransformationRequest(req);
     let {added, removed} = this.replaceNodesConnectedTo(depNode, [requestNode]);
 
     if (added.nodes.size) {
@@ -152,20 +152,22 @@ export default class AssetGraph extends Graph {
    * Marks a transformer request as resolved, and connects it to asset and file
    * nodes for the generated assets and connected files.
    */
-  resolveTransformerRequest(
-    req: TransformerRequest,
+  resolveTransformationRequest(
+    req: TransformationRequest,
     cacheEntry: CacheEntry
   ): FileUpdates {
     let newDepNodes: Array<Node> = [];
 
-    let requestNode = nodeFromTransformerRequest(req);
+    let requestNode = nodeFromTransformationRequest(req);
     this.incompleteNodes.delete(requestNode.id);
     this.invalidNodes.delete(requestNode.id);
 
     // Get connected files at the file level and asset level and connect them to the file node
     let fileNodes = cacheEntry.connectedFiles.map(file => nodeFromFile(file));
     for (let asset of cacheEntry.assets) {
-      let files = asset.connectedFiles.map(file => nodeFromFile(file));
+      let files = asset.connectedFiles
+        ? asset.connectedFiles.map(file => nodeFromFile(file))
+        : [];
       fileNodes = fileNodes.concat(files);
     }
 
@@ -264,6 +266,7 @@ export default class AssetGraph extends Graph {
         if (parts.length) label += '(' + parts.join(', ') + ')';
         if (node.value.env) label += ` (${getEnvDescription(node.value.env)})`;
       } else if (node.type === 'asset') {
+        console.log('ASSET', node.value);
         label += path.basename(node.value.filePath) + '#' + node.value.type;
       } else if (node.type === 'file') {
         label += path.basename(node.value.filePath);
