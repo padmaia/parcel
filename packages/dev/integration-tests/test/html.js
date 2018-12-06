@@ -49,6 +49,7 @@ describe('html', function() {
     for (let file of files) {
       let ext = file.match(/\.([0-9a-z]+)(?:[?#]|$)/i)[0];
       if (file !== 'index.html' && ext !== '.map') {
+        console.log('FILE', file, html.includes(file));
         assert(html.includes(file));
       }
     }

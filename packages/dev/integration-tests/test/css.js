@@ -9,7 +9,7 @@ const {
   ncp
 } = require('@parcel/test-utils');
 
-describe.only('css', function() {
+describe('css', function() {
   it('should produce two bundles when importing a CSS file', async function() {
     let b = await bundle(path.join(__dirname, '/integration/css/index.js'));
 
