@@ -1,0 +1,7 @@
+{
+  "name": "parcel-test-global-redeclare",
+  "private": true,
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}

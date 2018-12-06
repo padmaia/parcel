@@ -1,0 +1,13 @@
+{
+  "name": "@parcel/integration-tests",
+  "version": "1.10.3",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test mocha"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "mocha": "^5.2.0",
+    "sinon": "^7.1.1"
+  },
+  "dependencies": {}
+}
