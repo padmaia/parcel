@@ -2,7 +2,6 @@ const assert = require('assert');
 const fs = require('@parcel/fs');
 const path = require('path');
 const Asset = require('../src/Asset');
-const {bundle} = require('./utils');
 
 describe('Asset', () => {
   it('should include default implementations', async () => {
@@ -20,15 +19,6 @@ describe('Asset', () => {
       type: 'contents'
     });
     assert.equal(a.generateErrorMessage(err), err);
-  });
-
-  it('should support overriding the filename of the root bundle', async function() {
-    const outFile = 'custom-out-file.html';
-    await bundle(path.join(__dirname, '/integration/html/index.html'), {
-      outFile
-    });
-
-    assert(await fs.exists(__dirname, `/dist/${outFile}`));
   });
 
   it('should have backward compatibility for package field', function() {

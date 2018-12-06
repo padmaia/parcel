@@ -1,5 +1,5 @@
 const Watcher = require('../index');
-const {sleep} = require('@parcel/test-utils');
+const {sleep} = require('./utils');
 const assert = require('assert');
 
 describe('Watcher', function() {

@@ -1,8 +1,7 @@
 const assert = require('assert');
 const path = require('path');
 const fs = require('@parcel/fs');
-const {rimraf, ncp} = require('./utils');
-const {sleep} = require('@parcel/test-utils');
+const {sleep, rimraf, ncp} = require('./utils');
 const FSCache = require('../src/FSCache');
 
 const cachePath = path.join(__dirname, '.cache');

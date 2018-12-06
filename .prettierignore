@@ -1,5 +1,5 @@
 packages/core/parcel-bundler/src/builtins
-packages/core/parcel-bundler/test/integration
-packages/core/parcel-bundler/test/input
-packages/core/parcel-bundler/test/dist
+packages/*/*/test/integration
+packages/*/*/test/input
+packages/*/*/test/dist
 tmp

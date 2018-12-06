@@ -2,7 +2,7 @@ const Watcher = require('../index');
 const fs = require('@parcel/fs');
 const path = require('path');
 const assert = require('assert');
-const {sleep} = require('@parcel/test-utils');
+const {sleep} = require('./utils');
 
 describe('error handling', function() {
   let tmpFolder = path.join(__dirname, './tmp/');
