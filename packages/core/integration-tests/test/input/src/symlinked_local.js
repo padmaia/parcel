@@ -1,0 +1,1 @@
+/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/input/local.js
