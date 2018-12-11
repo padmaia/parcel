@@ -3,15 +3,20 @@
   "version": "1.10.3",
   "private": true,
   "scripts": {
-    "test": "cross-env NODE_ENV=test mocha",
+    "start-app": "parcel ready-yet-app/index.html",
+    "test": "cross-env NODE_ENV=test mocha --reporter ./ready-yet-reporter.js",
     "test-coverage": "rm -rf coverage/* && nyc yarn test --reporter mocha-multi-reporters --reporter-options configFile=./test/mochareporters.json",
     "report-coverage": "nyc report --reporter=lcov --reporter=cobertura --reporter=html && codecov",
     "test-ci": "yarn test-coverage && yarn report-coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "@parcel/fs": "^1.10.3",
     "@parcel/test-utils": "^1.10.3",
+    "babel-preset-react": "^6.24.1",
     "codecov": "^3.0.0",
     "command-exists": "^1.2.6",
     "graphql-tag": "^2.6.0",
@@ -26,5 +31,10 @@
     "sinon": "^5.0.1",
     "sourcemap-validator": "^1.0.6",
     "ws": "^5.1.1"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "victory": "^31.0.1"
   }
 }

@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="147.354" tests="336" failures="5" skipped="2">
+  <testsuite name="Root Suite" timestamp="2018-12-11T02:34:23" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="bundler" timestamp="2018-12-11T02:34:23" tests="6" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/bundler.js" failures="0" time="1.1960000000000002">
+    <testcase name="bundler should enforce asset type path to be a string" time="0.012" classname="should enforce asset type path to be a string">
+    </testcase>
+    <testcase name="bundler should enforce setup before bundling" time="0.001" classname="should enforce setup before bundling">
+    </testcase>
+    <testcase name="bundler should support multiple entry points" time="0.91" classname="should support multiple entry points">
+    </testcase>
+    <testcase name="bundler should support multiple entry points as a glob" time="0.273" classname="should support multiple entry points as a glob">
+    </testcase>
+  </testsuite>
+  <testsuite name="content hashing" timestamp="2018-12-11T02:34:24" tests="2" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/contentHashing.js" failures="0" time="2.372">
+    <testcase name="content hashing should update content hash when content changes" time="1.764" classname="should update content hash when content changes">
+    </testcase>
+    <testcase name="content hashing should update content hash when raw asset changes" time="0.608" classname="should update content hash when raw asset changes">
+    </testcase>
+  </testsuite>
+  <testsuite name="css" timestamp="2018-12-11T02:34:27" tests="10" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/css.js" failures="0" time="11.179">
+    <testcase name="css should produce two bundles when importing a CSS file" time="0.319" classname="should produce two bundles when importing a CSS file">
+    </testcase>
+    <testcase name="css should support loading a CSS bundle along side dynamic imports" time="0.398" classname="should support loading a CSS bundle along side dynamic imports">
+    </testcase>
+    <testcase name="css should support importing CSS from a CSS file" time="0.228" classname="should support importing CSS from a CSS file">
+    </testcase>
+    <testcase name="css should support linking to assets with url() from CSS" time="0.314" classname="should support linking to assets with url() from CSS">
+    </testcase>
+    <testcase name="css should support linking to assets with url() from CSS in production" time="0.347" classname="should support linking to assets with url() from CSS in production">
+    </testcase>
+    <testcase name="css should support transforming with postcss" time="0.599" classname="should support transforming with postcss">
+    </testcase>
+    <testcase name="css should support transforming with postcss twice with the same result" time="0.576" classname="should support transforming with postcss twice with the same result">
+    </testcase>
+    <testcase name="css should minify CSS in production mode" time="0.388" classname="should minify CSS in production mode">
+    </testcase>
+    <testcase name="css should automatically install postcss plugins with npm if needed" time="6.655" classname="should automatically install postcss plugins with npm if needed">
+    </testcase>
+    <testcase name="css should automatically install postcss plugins with yarn if needed" time="1.355" classname="should automatically install postcss plugins with yarn if needed">
+    </testcase>
+  </testsuite>
+  <testsuite name="elm" timestamp="2018-12-11T02:34:38" tests="4" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/elm.js" failures="4" time="2.058">
+    <testcase name="elm should produce a basic Elm bundle" time="0.776" classname="should produce a basic Elm bundle">
+      <failure message="Compilation failed
+events.js:183
+      throw er; // Unhandled &apos;error&apos; event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at Function.Module.runMain (module.js:696:11)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+" type="Error"><![CDATA[Error: Compilation failed
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+
+    at ChildProcess.<anonymous> (/Users/mteegarden/dev/repos/parcel-copy/node_modules/node-elm-compiler/index.js:149:27)
+    at maybeClose (internal/child_process.js:915:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)]]></failure>
+    </testcase>
+    <testcase name="elm should produce a elm bundle with debugger" time="0.568" classname="should produce a elm bundle with debugger">
+      <failure message="Compilation failed
+events.js:183
+      throw er; // Unhandled &apos;error&apos; event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at Function.Module.runMain (module.js:696:11)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+" type="Error"><![CDATA[Error: Compilation failed
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+
+    at ChildProcess.<anonymous> (/Users/mteegarden/dev/repos/parcel-copy/node_modules/node-elm-compiler/index.js:149:27)
+    at maybeClose (internal/child_process.js:915:16)
+    at Socket.stream.socket.on (internal/child_process.js:336:11)
+    at Pipe._handle.close [as _onclose] (net.js:561:12)]]></failure>
+    </testcase>
+    <testcase name="elm should remove debugger in production" time="0.373" classname="should remove debugger in production">
+      <failure message="Compilation failed
+events.js:183
+      throw er; // Unhandled &apos;error&apos; event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at Function.Module.runMain (module.js:696:11)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+" type="Error"><![CDATA[Error: Compilation failed
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+
+    at ChildProcess.<anonymous> (/Users/mteegarden/dev/repos/parcel-copy/node_modules/node-elm-compiler/index.js:149:27)
+    at maybeClose (internal/child_process.js:915:16)
+    at Socket.stream.socket.on (internal/child_process.js:336:11)
+    at Pipe._handle.close [as _onclose] (net.js:561:12)]]></failure>
+    </testcase>
+    <testcase name="elm should minify Elm in production mode" time="0.341" classname="should minify Elm in production mode">
+      <failure message="Compilation failed
+events.js:183
+      throw er; // Unhandled &apos;error&apos; event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at Function.Module.runMain (module.js:696:11)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+" type="Error"><![CDATA[Error: Compilation failed
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: spawn /Users/mteegarden/dev/repos/parcel-copy/node_modules/elm/unpacked_bin/elm ENOENT
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+    at onErrorNT (internal/child_process.js:362:16)
+    at _combinedTickCallback (internal/process/next_tick.js:139:11)
+    at process._tickCallback (internal/process/next_tick.js:181:9)
+    at startup (bootstrap_node.js:204:16)
+    at bootstrap_node.js:625:3
+
+    at ChildProcess.<anonymous> (/Users/mteegarden/dev/repos/parcel-copy/node_modules/node-elm-compiler/index.js:149:27)
+    at maybeClose (internal/child_process.js:915:16)
+    at Socket.stream.socket.on (internal/child_process.js:336:11)
+    at Pipe._handle.close [as _onclose] (net.js:561:12)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="encodedURI" timestamp="2018-12-11T02:34:40" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/encodedURI.js" failures="0" time="0.249">
+    <testcase name="encodedURI should support bundling files which names in encoded URI" time="0.249" classname="should support bundling files which names in encoded URI">
+    </testcase>
+  </testsuite>
+  <testsuite name="fs" timestamp="2018-12-11T02:34:40" tests="0" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/fs.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="--target=browser" timestamp="2018-12-11T02:34:40" tests="11" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/fs.js" failures="0" time="4.118">
+    <testcase name="fs --target=browser should inline a file as a string" time="0.347" classname="should inline a file as a string">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file as a buffer" time="0.52" classname="should inline a file as a buffer">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require alias" time="0.153" classname="should inline a file with fs require alias">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require inline" time="0.339" classname="should inline a file with fs require inline">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require assignment" time="0.45" classname="should inline a file with fs require assignment">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require assignment alias" time="0.203" classname="should inline a file with fs require assignment alias">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require destructure" time="0.364" classname="should inline a file with fs require destructure">
+    </testcase>
+    <testcase name="fs --target=browser should inline a file with fs require destructure assignment" time="0.364" classname="should inline a file with fs require destructure assignment">
+    </testcase>
+    <testcase name="fs --target=browser should not evaluate fs calls when package.browser.fs is false" time="0.426" classname="should not evaluate fs calls when package.browser.fs is false">
+    </testcase>
+    <testcase name="fs --target=browser should ignore fs calls when the filename is not evaluable" time="0.476" classname="should ignore fs calls when the filename is not evaluable">
+    </testcase>
+    <testcase name="fs --target=browser should ignore fs calls when the options are not evaluable" time="0.476" classname="should ignore fs calls when the options are not evaluable">
+    </testcase>
+  </testsuite>
+  <testsuite name="--target=node" timestamp="2018-12-11T02:34:44" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/fs.js" failures="0" time="0.407">
+    <testcase name="fs --target=node should leave an attempt to read a file unchanged" time="0.407" classname="should leave an attempt to read a file unchanged">
+    </testcase>
+  </testsuite>
+  <testsuite name="--target=electron" timestamp="2018-12-11T02:34:45" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/fs.js" failures="0" time="0.479">
+    <testcase name="fs --target=electron should leave an attempt to read a file unchanged" time="0.479" classname="should leave an attempt to read a file unchanged">
+    </testcase>
+  </testsuite>
+  <testsuite name="glob" timestamp="2018-12-11T02:34:45" tests="3" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/glob.js" failures="0" time="1.5819999999999999">
+    <testcase name="glob should require a glob of files" time="0.477" classname="should require a glob of files">
+    </testcase>
+    <testcase name="glob should require nested directories with a glob" time="0.597" classname="should require nested directories with a glob">
+    </testcase>
+    <testcase name="glob should support importing a glob of CSS files" time="0.508" classname="should support importing a glob of CSS files">
+    </testcase>
+  </testsuite>
+  <testsuite name="glsl" timestamp="2018-12-11T02:34:47" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/glsl.js" failures="0" time="0.653">
+    <testcase name="glsl should support requiring GLSL files via glslify" time="0.653" classname="should support requiring GLSL files via glslify">
+    </testcase>
+  </testsuite>
+  <testsuite name="graphql" timestamp="2018-12-11T02:34:47" tests="2" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/graphql.js" failures="0" time="1.026">
+    <testcase name="graphql should support requiring graphql files" time="0.505" classname="should support requiring graphql files">
+    </testcase>
+    <testcase name="graphql should support importing other graphql files from a graphql file" time="0.521" classname="should support importing other graphql files from a graphql file">
+    </testcase>
+  </testsuite>
+  <testsuite name="hmr" timestamp="2018-12-11T02:34:49" tests="14" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/hmr.js" failures="0" time="13.674000000000003">
+    <testcase name="hmr should emit an HMR update for the file that changed" time="1.717" classname="should emit an HMR update for the file that changed">
+    </testcase>
+    <testcase name="hmr should not enable HMR for --target=node" time="0.377" classname="should not enable HMR for --target=node">
+    </testcase>
+    <testcase name="hmr should enable HMR for --target=electron" time="0.59" classname="should enable HMR for --target=electron">
+    </testcase>
+    <testcase name="hmr should emit an HMR update for all new dependencies along with the changed file" time="0.684" classname="should emit an HMR update for all new dependencies along with the changed file">
+    </testcase>
+    <testcase name="hmr should emit an HMR error on bundle failure" time="0.685" classname="should emit an HMR error on bundle failure">
+    </testcase>
+    <testcase name="hmr should emit an HMR error to new connections after a bundle failure" time="0.982" classname="should emit an HMR error to new connections after a bundle failure">
+    </testcase>
+    <testcase name="hmr should emit an HMR error-resolved on build after error" time="1.241" classname="should emit an HMR error-resolved on build after error">
+    </testcase>
+    <testcase name="hmr should accept HMR updates in the runtime" time="0.714" classname="should accept HMR updates in the runtime">
+    </testcase>
+    <testcase name="hmr should call dispose and accept callbacks" time="0.732" classname="should call dispose and accept callbacks">
+    </testcase>
+    <testcase name="hmr should work across bundles" time="0.896" classname="should work across bundles">
+    </testcase>
+    <testcase name="hmr should log emitted errors and show an error overlay" time="0.848" classname="should log emitted errors and show an error overlay">
+    </testcase>
+    <testcase name="hmr should log when errors resolve" time="1.298" classname="should log when errors resolve">
+    </testcase>
+    <testcase name="hmr should make a secure connection" time="2.007" classname="should make a secure connection">
+    </testcase>
+    <testcase name="hmr should make a secure connection with custom certificate" time="0.903" classname="should make a secure connection with custom certificate">
+    </testcase>
+  </testsuite>
+  <testsuite name="html" timestamp="2018-12-11T02:35:06" tests="35" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/html.js" failures="0" time="10.964999999999998">
+    <testcase name="html should support bundling HTML" time="0.085" classname="should support bundling HTML">
+    </testcase>
+    <testcase name="html should find href attr when not first" time="0.567" classname="should find href attr when not first">
+    </testcase>
+    <testcase name="html should support transforming HTML with posthtml" time="0.303" classname="should support transforming HTML with posthtml">
+    </testcase>
+    <testcase name="html should find assets inside posthtml" time="0.291" classname="should find assets inside posthtml">
+    </testcase>
+    <testcase name="html should add dependencies referenced by posthtml-include" time="0.294" classname="should add dependencies referenced by posthtml-include">
+    </testcase>
+    <testcase name="html should add dependencies referenced by plugins" time="0.278" classname="should add dependencies referenced by plugins">
+    </testcase>
+    <testcase name="html should insert sibling CSS bundles for JS files in the HEAD" time="0.303" classname="should insert sibling CSS bundles for JS files in the HEAD">
+    </testcase>
+    <testcase name="html should insert sibling bundles before body element if no HEAD" time="0.4" classname="should insert sibling bundles before body element if no HEAD">
+    </testcase>
+    <testcase name="html should insert sibling JS bundles for CSS files in the HEAD" time="0.292" classname="should insert sibling JS bundles for CSS files in the HEAD">
+    </testcase>
+    <testcase name="html should insert sibling bundles at correct location in tree when optional elements are absent" time="0.291" classname="should insert sibling bundles at correct location in tree when optional elements are absent">
+    </testcase>
+    <testcase name="html should minify HTML in production mode" time="0.281" classname="should minify HTML in production mode">
+    </testcase>
+    <testcase name="html should read .htmlnanorc and minify HTML in production mode" time="0.341" classname="should read .htmlnanorc and minify HTML in production mode">
+    </testcase>
+    <testcase name="html should not minify default values inside HTML in production mode" time="0.264" classname="should not minify default values inside HTML in production mode">
+    </testcase>
+    <testcase name="html should not prepend the public path to assets with remote URLs" time="0.32" classname="should not prepend the public path to assets with remote URLs">
+    </testcase>
+    <testcase name="html should not prepend the public path to hash links" time="0.298" classname="should not prepend the public path to hash links">
+    </testcase>
+    <testcase name="html should detect virtual paths" time="0.332" classname="should detect virtual paths">
+    </testcase>
+    <testcase name="html should not update root/main file in the bundles" time="0.353" classname="should not update root/main file in the bundles">
+    </testcase>
+    <testcase name="html should conserve the spacing in the HTML tags" time="0.34" classname="should conserve the spacing in the HTML tags">
+    </testcase>
+    <testcase name="html should support child bundles of different types" time="0.329" classname="should support child bundles of different types">
+    </testcase>
+    <testcase name="html should support circular dependencies" time="0.331" classname="should support circular dependencies">
+    </testcase>
+    <testcase name="html should support bundling HTM" time="0.286" classname="should support bundling HTM">
+    </testcase>
+    <testcase name="html should detect srcset attribute" time="0.357" classname="should detect srcset attribute">
+    </testcase>
+    <testcase name="html should detect srcset attribute of source element" time="0.307" classname="should detect srcset attribute of source element">
+    </testcase>
+    <testcase name="html should support webmanifest" time="0.302" classname="should support webmanifest">
+    </testcase>
+    <testcase name="html should treat webmanifest as an entry module so it doesn&apos;t get content hashed" time="0.285" classname="should treat webmanifest as an entry module so it doesn&apos;t get content hashed">
+    </testcase>
+    <testcase name="html should bundle svg files correctly" time="0.321" classname="should bundle svg files correctly">
+    </testcase>
+    <testcase name="html should bundle svg files using &lt;image xlink:href=&quot;&quot;&gt; correctly" time="0.279" classname="should bundle svg files using &lt;image xlink:href=&quot;&quot;&gt; correctly">
+    </testcase>
+    <testcase name="html should support data attribute of object element" time="0.267" classname="should support data attribute of object element">
+    </testcase>
+    <testcase name="html should resolve assets containing spaces" time="0.292" classname="should resolve assets containing spaces">
+    </testcase>
+    <testcase name="html should process inline JS" time="0.283" classname="should process inline JS">
+    </testcase>
+    <testcase name="html should process inline styles" time="0.338" classname="should process inline styles">
+    </testcase>
+    <testcase name="html should process inline styles using lang" time="0.535" classname="should process inline styles using lang">
+    </testcase>
+    <testcase name="html should process inline non-js scripts" time="0.29" classname="should process inline non-js scripts">
+    </testcase>
+    <testcase name="html should handle inline css with @imports" time="0.265" classname="should handle inline css with @imports">
+    </testcase>
+    <testcase name="html should error on imports and requires in inline &lt;script&gt; tags" time="0.265" classname="should error on imports and requires in inline &lt;script&gt; tags">
+    </testcase>
+  </testsuite>
+  <testsuite name="javascript" timestamp="2018-12-11T02:35:17" tests="85" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/javascript.js" failures="1" time="31.159">
+    <testcase name="javascript should produce a basic JS bundle with CommonJS requires" time="0.398" classname="should produce a basic JS bundle with CommonJS requires">
+    </testcase>
+    <testcase name="javascript should produce a basic JS bundle with ES6 imports" time="0.307" classname="should produce a basic JS bundle with ES6 imports">
+    </testcase>
+    <testcase name="javascript should produce a basic JS bundle using Babel 6" time="0.211" classname="should produce a basic JS bundle using Babel 6">
+    </testcase>
+    <testcase name="javascript should auto install babel-core v6" time="1.255" classname="should auto install babel-core v6">
+    </testcase>
+    <testcase name="javascript should auto install @babel/core v7" time="0.939" classname="should auto install @babel/core v7">
+    </testcase>
+    <testcase name="javascript should auto install babel plugins" time="0.371" classname="should auto install babel plugins">
+      <failure message="undefined == true" type="AssertionError [ERR_ASSERTION]"><![CDATA[AssertionError [ERR_ASSERTION]: undefined == true
+    at Context.<anonymous> (test/javascript.js:82:5)
+    at <anonymous>:null:null
+]]></failure>
+    </testcase>
+    <testcase name="javascript should produce a basic JS bundle with object rest spread support" time="0.315" classname="should produce a basic JS bundle with object rest spread support">
+    </testcase>
+    <testcase name="javascript should bundle node_modules on --target=browser" time="0.286" classname="should bundle node_modules on --target=browser">
+    </testcase>
+    <testcase name="javascript should not bundle node_modules on --target=node" time="0.287" classname="should not bundle node_modules on --target=node">
+    </testcase>
+    <testcase name="javascript should not bundle node_modules on --target=electron" time="0.291" classname="should not bundle node_modules on --target=electron">
+    </testcase>
+    <testcase name="javascript should bundle node_modules on --target=node and --bundle-node-modules" time="0.34" classname="should bundle node_modules on --target=node and --bundle-node-modules">
+    </testcase>
+    <testcase name="javascript should bundle node_modules on --target=electron and --bundle-node-modules" time="0.3" classname="should bundle node_modules on --target=electron and --bundle-node-modules">
+    </testcase>
+    <testcase name="javascript should produce a JS bundle with default exports and no imports" time="0.297" classname="should produce a JS bundle with default exports and no imports">
+    </testcase>
+    <testcase name="javascript should split bundles when a dynamic import is used with --target=browser" time="0.37" classname="should split bundles when a dynamic import is used with --target=browser">
+    </testcase>
+    <testcase name="javascript should split bundles when a dynamic import is used with --target=node" time="0.165" classname="should split bundles when a dynamic import is used with --target=node">
+    </testcase>
+    <testcase name="javascript should load dynamic bundle when entry is in a subdirectory" time="0.33" classname="should load dynamic bundle when entry is in a subdirectory">
+    </testcase>
+    <testcase name="javascript should support bundling workers" time="0.285" classname="should support bundling workers">
+    </testcase>
+    <testcase name="javascript should support bundling workers with different order" time="0.333" classname="should support bundling workers with different order">
+    </testcase>
+    <testcase name="javascript should support bundling service-workers" time="0.286" classname="should support bundling service-workers">
+    </testcase>
+    <testcase name="javascript should support bundling workers with circular dependencies" time="0.296" classname="should support bundling workers with circular dependencies">
+    </testcase>
+    <testcase name="javascript should support bundling in workers with other loaders" time="0.424" classname="should support bundling in workers with other loaders">
+    </testcase>
+    <testcase name="javascript should dynamic import files which import raw files" time="0.309" classname="should dynamic import files which import raw files">
+    </testcase>
+    <testcase name="javascript should return all exports as an object when using ES modules" time="0.314" classname="should return all exports as an object when using ES modules">
+    </testcase>
+    <testcase name="javascript should hoist common dependencies into a parent bundle" time="0.372" classname="should hoist common dependencies into a parent bundle">
+    </testcase>
+    <testcase name="javascript should not duplicate a module which is already in a parent bundle" time="0.288" classname="should not duplicate a module which is already in a parent bundle">
+    </testcase>
+    <testcase name="javascript should support hoisting shared modules with async imports up multiple levels" time="0.314" classname="should support hoisting shared modules with async imports up multiple levels">
+    </testcase>
+    <testcase name="javascript should support requiring JSON files" time="0.305" classname="should support requiring JSON files">
+    </testcase>
+    <testcase name="javascript should support requiring JSON5 files" time="0.424" classname="should support requiring JSON5 files">
+    </testcase>
+    <testcase name="javascript should support importing a URL to a raw asset" time="0.188" classname="should support importing a URL to a raw asset">
+    </testcase>
+    <testcase name="javascript should minify JS in production mode" time="0.347" classname="should minify JS in production mode">
+    </testcase>
+    <testcase name="javascript should use uglify config" time="0.284" classname="should use uglify config">
+    </testcase>
+    <testcase name="javascript should insert global variables when needed" time="0.439" classname="should insert global variables when needed">
+    </testcase>
+    <testcase name="javascript should handle re-declaration of the global constant" time="0.161" classname="should handle re-declaration of the global constant">
+    </testcase>
+    <testcase name="javascript should not insert environment variables on --target=node" time="0.261" classname="should not insert environment variables on --target=node">
+    </testcase>
+    <testcase name="javascript should not insert environment variables on --target=electron" time="0.269" classname="should not insert environment variables on --target=electron">
+    </testcase>
+    <testcase name="javascript should insert environment variables on --target=browser" time="0.262" classname="should insert environment variables on --target=browser">
+    </testcase>
+    <testcase name="javascript should insert environment variables from a file" time="0.285" classname="should insert environment variables from a file">
+    </testcase>
+    <testcase name="javascript should support adding implicit dependencies" time="0.284" classname="should support adding implicit dependencies">
+    </testcase>
+    <testcase name="javascript should support requiring YAML files" time="0.329" classname="should support requiring YAML files">
+    </testcase>
+    <testcase name="javascript should support requiring TOML files" time="0.337" classname="should support requiring TOML files">
+    </testcase>
+    <testcase name="javascript should support requiring CoffeeScript files" time="0.301" classname="should support requiring CoffeeScript files">
+    </testcase>
+    <testcase name="javascript should resolve the browser field before main" time="0.327" classname="should resolve the browser field before main">
+    </testcase>
+    <testcase name="javascript should not resolve the browser field for --target=node" time="0.31" classname="should not resolve the browser field for --target=node">
+    </testcase>
+    <testcase name="javascript should resolve advanced browser resolution" time="0.353" classname="should resolve advanced browser resolution">
+    </testcase>
+    <testcase name="javascript should not resolve advanced browser resolution with --target=node" time="0.31" classname="should not resolve advanced browser resolution with --target=node">
+    </testcase>
+    <testcase name="javascript should resolve the module field before main" time="0.377" classname="should resolve the module field before main">
+    </testcase>
+    <testcase name="javascript should resolve the module field before main" time="0.317" classname="should resolve the module field before main">
+    </testcase>
+    <testcase name="javascript should resolve the main field" time="0.301" classname="should resolve the main field">
+    </testcase>
+    <testcase name="javascript should minify JSON files" time="0.295" classname="should minify JSON files">
+    </testcase>
+    <testcase name="javascript should minify JSON5 files" time="0.274" classname="should minify JSON5 files">
+    </testcase>
+    <testcase name="javascript should minify YAML for production" time="0.281" classname="should minify YAML for production">
+    </testcase>
+    <testcase name="javascript should minify TOML for production" time="0.304" classname="should minify TOML for production">
+    </testcase>
+    <testcase name="javascript should support compiling with babel using .babelrc config" time="0.352" classname="should support compiling with babel using .babelrc config">
+    </testcase>
+    <testcase name="javascript should compile with babel with default engines if no config" time="0.46" classname="should compile with babel with default engines if no config">
+    </testcase>
+    <testcase name="javascript should support compiling with babel using browserlist" time="0.297" classname="should support compiling with babel using browserlist">
+    </testcase>
+    <testcase name="javascript should support splitting babel-polyfill using browserlist" time="0.554" classname="should support splitting babel-polyfill using browserlist">
+    </testcase>
+    <testcase name="javascript should support compiling with babel using browserslist for different environments" time="0.924" classname="should support compiling with babel using browserslist for different environments">
+    </testcase>
+    <testcase name="javascript should not compile node_modules by default" time="0.301" classname="should not compile node_modules by default">
+    </testcase>
+    <testcase name="javascript should compile node_modules if legacy browserify options are found" time="0.356" classname="should compile node_modules if legacy browserify options are found">
+    </testcase>
+    <testcase name="javascript should compile node_modules with browserslist to app target" time="0.308" classname="should compile node_modules with browserslist to app target">
+    </testcase>
+    <testcase name="javascript should compile node_modules when symlinked with a source field in package.json" time="0.344" classname="should compile node_modules when symlinked with a source field in package.json">
+    </testcase>
+    <testcase name="javascript should not compile node_modules with a source field in package.json when not symlinked" time="0.399" classname="should not compile node_modules with a source field in package.json when not symlinked">
+    </testcase>
+    <testcase name="javascript should support compiling JSX" time="0.529" classname="should support compiling JSX">
+    </testcase>
+    <testcase name="javascript should support compiling JSX in JS files with React dependency" time="0.502" classname="should support compiling JSX in JS files with React dependency">
+    </testcase>
+    <testcase name="javascript should support compiling JSX in JS files with Preact dependency" time="0.486" classname="should support compiling JSX in JS files with Preact dependency">
+    </testcase>
+    <testcase name="javascript should support compiling JSX in JS files with Nerv dependency" time="0.493" classname="should support compiling JSX in JS files with Nerv dependency">
+    </testcase>
+    <testcase name="javascript should support compiling JSX in JS files with Hyperapp dependency" time="0.485" classname="should support compiling JSX in JS files with Hyperapp dependency">
+    </testcase>
+    <testcase name="javascript should support optional dependencies in try...catch blocks" time="0.455" classname="should support optional dependencies in try...catch blocks">
+    </testcase>
+    <testcase name="javascript should support excluding dependencies in falsy branches" time="0.529" classname="should support excluding dependencies in falsy branches">
+    </testcase>
+    <testcase name="javascript should not autoinstall if resolve failed on installed module" time="0.416" classname="should not autoinstall if resolve failed on installed module">
+    </testcase>
+    <testcase name="javascript should not autoinstall if resolve failed on aliased module" time="0.45" classname="should not autoinstall if resolve failed on aliased module">
+    </testcase>
+    <testcase name="javascript should ignore require if it is defined in the scope" time="0.412" classname="should ignore require if it is defined in the scope">
+    </testcase>
+    <testcase name="javascript should expose to CommonJS entry point" time="0.476" classname="should expose to CommonJS entry point">
+    </testcase>
+    <testcase name="javascript should expose to RequireJS entry point" time="0.359" classname="should expose to RequireJS entry point">
+    </testcase>
+    <testcase name="javascript should expose variable with --browser-global" time="0.319" classname="should expose variable with --browser-global">
+    </testcase>
+    <testcase name="javascript should set `define` to undefined so AMD checks in UMD modules do not pass" time="0.314" classname="should set `define` to undefined so AMD checks in UMD modules do not pass">
+    </testcase>
+    <testcase name="javascript should not dedupe imports with different contents" time="0.34" classname="should not dedupe imports with different contents">
+    </testcase>
+    <testcase name="javascript should not dedupe imports with same content but different absolute dependency paths" time="0.377" classname="should not dedupe imports with same content but different absolute dependency paths">
+    </testcase>
+    <testcase name="javascript should dedupe imports with same content and same dependency paths" time="0.466" classname="should dedupe imports with same content and same dependency paths">
+    </testcase>
+    <testcase name="javascript should not dedupe assets that exist in more than one bundle" time="0.273" classname="should not dedupe assets that exist in more than one bundle">
+    </testcase>
+    <testcase name="javascript should support importing HTML from JS async" time="0.309" classname="should support importing HTML from JS async">
+    </testcase>
+    <testcase name="javascript should support importing HTML from JS async with --target=node" time="0.319" classname="should support importing HTML from JS async with --target=node">
+    </testcase>
+    <testcase name="javascript should support importing HTML from JS sync" time="0.347" classname="should support importing HTML from JS sync">
+    </testcase>
+    <testcase name="javascript should strip away flow types of node modules" time="0.3" classname="should strip away flow types of node modules">
+    </testcase>
+    <testcase name="javascript should stub require.cache" time="0.3" classname="should stub require.cache">
+    </testcase>
+  </testsuite>
+  <testsuite name="less" timestamp="2018-12-11T02:35:48" tests="6" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/less.js" failures="0" time="2.663">
+    <testcase name="less should support requiring less files" time="0.556" classname="should support requiring less files">
+    </testcase>
+    <testcase name="less should support less imports" time="0.319" classname="should support less imports">
+    </testcase>
+    <testcase name="less should support advanced less imports" time="0.513" classname="should support advanced less imports">
+    </testcase>
+    <testcase name="less should support requiring empty less files" time="0.57" classname="should support requiring empty less files">
+    </testcase>
+    <testcase name="less should support linking to assets with url() from less" time="0.42" classname="should support linking to assets with url() from less">
+    </testcase>
+    <testcase name="less should support transforming less with postcss" time="0.285" classname="should support transforming less with postcss">
+    </testcase>
+  </testsuite>
+  <testsuite name="parser" timestamp="2018-12-11T02:35:51" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/parser.js" failures="0" time="0.3">
+    <testcase name="parser should support case-insensitive file extension" time="0.3" classname="should support case-insensitive file extension">
+    </testcase>
+  </testsuite>
+  <testsuite name="pug" timestamp="2018-12-11T02:35:51" tests="6" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/pug.js" failures="0" time="2.102">
+    <testcase name="pug should support bundling HTML" time="0.646" classname="should support bundling HTML">
+    </testcase>
+    <testcase name="pug should support include and extends files" time="0.355" classname="should support include and extends files">
+    </testcase>
+    <testcase name="pug should support variables" time="0.311" classname="should support variables">
+    </testcase>
+    <testcase name="pug should support mixins" time="0.288" classname="should support mixins">
+    </testcase>
+    <testcase name="pug should support filters" time="0.249" classname="should support filters">
+    </testcase>
+    <testcase name="pug should minify HTML in production mode" time="0.253" classname="should minify HTML in production mode">
+    </testcase>
+  </testsuite>
+  <testsuite name="reason" timestamp="2018-12-11T02:35:53" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/reason.js" failures="0" time="0.286">
+    <testcase name="reason should produce a bundle" time="0.286" classname="should produce a bundle">
+    </testcase>
+  </testsuite>
+  <testsuite name="sass" timestamp="2018-12-11T02:35:54" tests="7" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/sass.js" failures="0" time="2.13">
+    <testcase name="sass should support requiring sass files" time="0.285" classname="should support requiring sass files">
+    </testcase>
+    <testcase name="sass should support requiring scss files" time="0.306" classname="should support requiring scss files">
+    </testcase>
+    <testcase name="sass should support scss imports" time="0.353" classname="should support scss imports">
+    </testcase>
+    <testcase name="sass should support requiring empty scss files" time="0.252" classname="should support requiring empty scss files">
+    </testcase>
+    <testcase name="sass should support linking to assets with url() from scss" time="0.335" classname="should support linking to assets with url() from scss">
+    </testcase>
+    <testcase name="sass should support transforming scss with postcss" time="0.297" classname="should support transforming scss with postcss">
+    </testcase>
+    <testcase name="sass should support advanced import syntax" time="0.302" classname="should support advanced import syntax">
+    </testcase>
+  </testsuite>
+  <testsuite name="schema ld+json" timestamp="2018-12-11T02:35:56" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/schema-jsonld.js" failures="0" time="0.295">
+    <testcase name="schema ld+json Should parse a LD+JSON schema and collect dependencies" time="0.295" classname="Should parse a LD+JSON schema and collect dependencies">
+    </testcase>
+  </testsuite>
+  <testsuite name="scope hoisting" timestamp="2018-12-11T02:35:56" tests="0" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/scope-hoisting.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="es6" timestamp="2018-12-11T02:35:56" tests="36" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/scope-hoisting.js" failures="0" time="11.962000000000002">
+    <testcase name="scope hoisting es6 supports default imports and exports of expressions" time="0.27" classname="supports default imports and exports of expressions">
+    </testcase>
+    <testcase name="scope hoisting es6 supports default imports and exports of declarations" time="0.328" classname="supports default imports and exports of declarations">
+    </testcase>
+    <testcase name="scope hoisting es6 supports default imports and exports of anonymous declarations" time="0.302" classname="supports default imports and exports of anonymous declarations">
+    </testcase>
+    <testcase name="scope hoisting es6 supports default imports and exports of variables" time="0.305" classname="supports default imports and exports of variables">
+    </testcase>
+    <testcase name="scope hoisting es6 supports named imports and exports of declarations" time="0.352" classname="supports named imports and exports of declarations">
+    </testcase>
+    <testcase name="scope hoisting es6 supports named imports and exports of variables" time="0.299" classname="supports named imports and exports of variables">
+    </testcase>
+    <testcase name="scope hoisting es6 supports renaming superclass identifiers" time="0.372" classname="supports renaming superclass identifiers">
+    </testcase>
+    <testcase name="scope hoisting es6 supports renaming imports" time="0.302" classname="supports renaming imports">
+    </testcase>
+    <testcase name="scope hoisting es6 supports renaming exports" time="0.315" classname="supports renaming exports">
+    </testcase>
+    <testcase name="scope hoisting es6 supports importing a namespace of exported values" time="0.297" classname="supports importing a namespace of exported values">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting all exports from another module" time="0.337" classname="supports re-exporting all exports from another module">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting all exports from multiple modules" time="0.481" classname="supports re-exporting all exports from multiple modules">
+    </testcase>
+    <testcase name="scope hoisting es6 supports importing all exports re-exported from multiple modules deep" time="0.167" classname="supports importing all exports re-exported from multiple modules deep">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting all exports from multiple modules deep" time="0.318" classname="supports re-exporting all exports from multiple modules deep">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting individual named exports from another module" time="0.326" classname="supports re-exporting individual named exports from another module">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting default exports from another module" time="0.493" classname="supports re-exporting default exports from another module">
+    </testcase>
+    <testcase name="scope hoisting es6 supports re-exporting a namespace from another module" time="0.315" classname="supports re-exporting a namespace from another module">
+    </testcase>
+    <testcase name="scope hoisting es6 excludes default when re-exporting a module" time="0.339" classname="excludes default when re-exporting a module">
+    </testcase>
+    <testcase name="scope hoisting es6 supports multiple exports of the same variable" time="0.365" classname="supports multiple exports of the same variable">
+    </testcase>
+    <testcase name="scope hoisting es6 supports live bindings of named exports" time="0.347" classname="supports live bindings of named exports">
+    </testcase>
+    <testcase name="scope hoisting es6 supports dynamic import syntax for code splitting" time="0.406" classname="supports dynamic import syntax for code splitting">
+    </testcase>
+    <testcase name="scope hoisting es6 should not export function arguments" time="0.206" classname="should not export function arguments">
+    </testcase>
+    <testcase name="scope hoisting es6 supports import default CommonJS interop" time="0.34" classname="supports import default CommonJS interop">
+    </testcase>
+    <testcase name="scope hoisting es6 supports import default CommonJS interop with dynamic imports" time="0.564" classname="supports import default CommonJS interop with dynamic imports">
+    </testcase>
+    <testcase name="scope hoisting es6 supports exporting an import" time="0.365" classname="supports exporting an import">
+    </testcase>
+    <testcase name="scope hoisting es6 keeps side effects by default" time="0.319" classname="keeps side effects by default">
+    </testcase>
+    <testcase name="scope hoisting es6 supports the package.json sideEffects: false flag" time="0.306" classname="supports the package.json sideEffects: false flag">
+    </testcase>
+    <testcase name="scope hoisting es6 supports wildcards with sideEffects: false" time="0.32" classname="supports wildcards with sideEffects: false">
+    </testcase>
+    <testcase name="scope hoisting es6 supports the package.json sideEffects flag with an array" time="0.315" classname="supports the package.json sideEffects flag with an array">
+    </testcase>
+    <testcase name="scope hoisting es6 missing exports should be replaced with an empty object" time="0.281" classname="missing exports should be replaced with an empty object">
+    </testcase>
+    <testcase name="scope hoisting es6 supports importing a namespace from a commonjs module when code split" time="0.416" classname="supports importing a namespace from a commonjs module when code split">
+    </testcase>
+    <testcase name="scope hoisting es6 removes unused exports" time="0.243" classname="removes unused exports">
+    </testcase>
+    <testcase name="scope hoisting es6 support exporting a ES6 module exported as CommonJS" time="0.304" classname="support exporting a ES6 module exported as CommonJS">
+    </testcase>
+    <testcase name="scope hoisting es6 should support named imports on wrapped modules" time="0.288" classname="should support named imports on wrapped modules">
+    </testcase>
+    <testcase name="scope hoisting es6 should support the jsx pragma" time="0.36" classname="should support the jsx pragma">
+    </testcase>
+    <testcase name="scope hoisting es6 should not nameclash with internal variables" time="0.299" classname="should not nameclash with internal variables">
+    </testcase>
+  </testsuite>
+  <testsuite name="commonjs" timestamp="2018-12-11T02:36:08" tests="46" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/scope-hoisting.js" failures="0" time="15.789000000000001">
+    <testcase name="scope hoisting commonjs supports require of commonjs modules" time="0.285" classname="supports require of commonjs modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports default imports of commonjs modules" time="0.323" classname="supports default imports of commonjs modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports named imports of commonjs modules" time="0.294" classname="supports named imports of commonjs modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports namespace imports of commonjs modules" time="0.312" classname="supports namespace imports of commonjs modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 default export of expressions" time="0.312" classname="supports require of es6 default export of expressions">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 default export of declarations" time="0.318" classname="supports require of es6 default export of declarations">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 default export of variables" time="0.299" classname="supports require of es6 default export of variables">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 named export of declarations" time="0.318" classname="supports require of es6 named export of declarations">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 named export of variables" time="0.31" classname="supports require of es6 named export of variables">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 renamed exports" time="0.295" classname="supports require of es6 renamed exports">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 module re-exporting all exports from another module" time="0.306" classname="supports require of es6 module re-exporting all exports from another module">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require of es6 module re-exporting all exports from multiple modules" time="0.331" classname="supports require of es6 module re-exporting all exports from multiple modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports re-exporting individual named exports from another module" time="0.287" classname="supports re-exporting individual named exports from another module">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports re-exporting default exports from another module" time="0.328" classname="supports re-exporting default exports from another module">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports re-exporting a namespace from another module" time="0.348" classname="supports re-exporting a namespace from another module">
+    </testcase>
+    <testcase name="scope hoisting commonjs excludes default when re-exporting a module" time="0.285" classname="excludes default when re-exporting a module">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports hybrid ES6 + commonjs modules" time="0.283" classname="supports hybrid ES6 + commonjs modules">
+    </testcase>
+    <testcase name="scope hoisting commonjs inserts commonjs exports object in the right place" time="0.331" classname="inserts commonjs exports object in the right place">
+    </testcase>
+    <testcase name="scope hoisting commonjs define exports in the outermost scope" time="0.291" classname="define exports in the outermost scope">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports live bindings of named exports" time="0.27" classname="supports live bindings of named exports">
+    </testcase>
+    <testcase name="scope hoisting commonjs should wrap modules that use eval in a function" time="0.323" classname="should wrap modules that use eval in a function">
+    </testcase>
+    <testcase name="scope hoisting commonjs should wrap modules that have a top-level return" time="0.3" classname="should wrap modules that have a top-level return">
+    </testcase>
+    <testcase name="scope hoisting commonjs should wrap modules that access `module` as a free variable" time="0.288" classname="should wrap modules that access `module` as a free variable">
+    </testcase>
+    <testcase name="scope hoisting commonjs should wrap modules that non-statically access `module`" time="0.434" classname="should wrap modules that non-statically access `module`">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports assigning to this as exports object" time="0.15" classname="supports assigning to this as exports object">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports assigning to this as exports object in wrapped module" time="0.294" classname="supports assigning to this as exports object in wrapped module">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports module object properties" time="0.279" classname="supports module object properties">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports require.resolve calls" time="0.311" classname="supports require.resolve calls">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports requiring a re-exported ES6 import" time="0.325" classname="supports requiring a re-exported ES6 import">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports object pattern requires" time="0.271" classname="supports object pattern requires">
+    </testcase>
+    <testcase name="scope hoisting commonjs eliminates CommonJS export object where possible" time="0.338" classname="eliminates CommonJS export object where possible">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports multiple assignments in one line" time="0.276" classname="supports multiple assignments in one line">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports circular dependencies" time="0.278" classname="supports circular dependencies">
+    </testcase>
+    <testcase name="scope hoisting commonjs executes modules in the correct order" time="0.301" classname="executes modules in the correct order">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports conditional requires" time="0.346" classname="supports conditional requires">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports requires inside functions" time="0.28" classname="supports requires inside functions">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports requires inside functions with es6 import side effects" time="0.321" classname="supports requires inside functions with es6 import side effects">
+    </testcase>
+    <testcase name="scope hoisting commonjs hoists import calls to the top" time="0.338" classname="hoists import calls to the top">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports requires inside functions with es6 re-export side effects" time="0.34" classname="supports requires inside functions with es6 re-export side effects">
+    </testcase>
+    <testcase name="scope hoisting commonjs can bundle the node stream module" time="1.974" classname="can bundle the node stream module">
+    </testcase>
+    <testcase name="scope hoisting commonjs missing exports should be replaced with an empty object" time="0.336" classname="missing exports should be replaced with an empty object">
+    </testcase>
+    <testcase name="scope hoisting commonjs removes unused exports" time="0.344" classname="removes unused exports">
+    </testcase>
+    <testcase name="scope hoisting commonjs supports removing an unused inline export with uglify minification" time="0.316" classname="supports removing an unused inline export with uglify minification">
+    </testcase>
+    <testcase name="scope hoisting commonjs should support sideEffects: false" time="0.288" classname="should support sideEffects: false">
+    </testcase>
+    <testcase name="scope hoisting commonjs should support two aliases to the same module" time="0.336" classname="should support two aliases to the same module">
+    </testcase>
+    <testcase name="scope hoisting commonjs should support optional requires" time="0.276" classname="should support optional requires">
+    </testcase>
+  </testsuite>
+  <testsuite name="server" timestamp="2018-12-11T02:36:24" tests="11" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/server.js" failures="0" time="12.016">
+    <testcase name="server should serve files" time="0.396" classname="should serve files">
+    </testcase>
+    <testcase name="server should serve a default page if the main bundle is an HTML asset" time="0.256" classname="should serve a default page if the main bundle is an HTML asset">
+    </testcase>
+    <testcase name="server should serve a 404 if the file does not exist" time="0.384" classname="should serve a 404 if the file does not exist">
+    </testcase>
+    <testcase name="server should serve a 500 if the bundler errored" time="0.234" classname="should serve a 500 if the bundler errored">
+    </testcase>
+    <testcase name="server should serve a 500 response with error stack trace when bundler has errors" time="0.285" classname="should serve a 500 response with error stack trace when bundler has errors">
+    </testcase>
+    <testcase name="server should serve a 500 response without stack trace when bundler has errors in production" time="0.314" classname="should serve a 500 response without stack trace when bundler has errors in production">
+    </testcase>
+    <testcase name="server should support HTTPS" time="8.961" classname="should support HTTPS">
+    </testcase>
+    <testcase name="server should support HTTPS via custom certificate" time="0.317" classname="should support HTTPS via custom certificate">
+    </testcase>
+    <testcase name="server should support setting a public url" time="0.318" classname="should support setting a public url">
+    </testcase>
+    <testcase name="server should serve static assets as well as html" time="0.263" classname="should serve static assets as well as html">
+    </testcase>
+    <testcase name="server should work with query parameters that contain a dot" time="0.288" classname="should work with query parameters that contain a dot">
+    </testcase>
+  </testsuite>
+  <testsuite name="sourcemaps" timestamp="2018-12-11T02:36:36" tests="9" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/sourcemaps.js" failures="0" time="2.954">
+    <testcase name="sourcemaps should create a valid sourcemap as a child of a JS bundle" time="0.25" classname="should create a valid sourcemap as a child of a JS bundle">
+    </testcase>
+    <testcase name="sourcemaps should create a valid sourcemap as a child of a TS bundle" time="0.542" classname="should create a valid sourcemap as a child of a TS bundle">
+    </testcase>
+    <testcase name="sourcemaps should create a valid sourcemap as a child of a nested TS bundle" time="0.3" classname="should create a valid sourcemap as a child of a nested TS bundle">
+    </testcase>
+    <testcase name="sourcemaps should create a valid sourcemap for a js file with requires" time="0.317" classname="should create a valid sourcemap for a js file with requires">
+    </testcase>
+    <testcase name="sourcemaps should create a valid sourcemap for a minified js bundle with requires" time="0.331" classname="should create a valid sourcemap for a minified js bundle with requires">
+    </testcase>
+    <testcase name="sourcemaps should create a valid sourcemap reference for a child bundle" time="0.295" classname="should create a valid sourcemap reference for a child bundle">
+    </testcase>
+    <testcase name="sourcemaps should load existing sourcemaps of libraries" time="0.287" classname="should load existing sourcemaps of libraries">
+    </testcase>
+    <testcase name="sourcemaps should load inline sourcemaps of libraries" time="0.329" classname="should load inline sourcemaps of libraries">
+    </testcase>
+    <testcase name="sourcemaps should load referenced contents of sourcemaps" time="0.303" classname="should load referenced contents of sourcemaps">
+    </testcase>
+  </testsuite>
+  <testsuite name="stylus" timestamp="2018-12-11T02:36:39" tests="5" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/stylus.js" failures="0" time="2.035">
+    <testcase name="stylus should support requiring stylus files" time="0.496" classname="should support requiring stylus files">
+    </testcase>
+    <testcase name="stylus should support requiring stylus files with dependencies" time="0.491" classname="should support requiring stylus files with dependencies">
+    </testcase>
+    <testcase name="stylus should support linking to assets with url() from stylus" time="0.351" classname="should support linking to assets with url() from stylus">
+    </testcase>
+    <testcase name="stylus should support transforming stylus with postcss" time="0.359" classname="should support transforming stylus with postcss">
+    </testcase>
+    <testcase name="stylus should support requiring stylus files with glob dependencies" time="0.338" classname="should support requiring stylus files with glob dependencies">
+    </testcase>
+  </testsuite>
+  <testsuite name="sugarss" timestamp="2018-12-11T02:36:41" tests="1" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/sugarss.js" failures="0" time="0.228">
+    <testcase name="sugarss should correctly parse SugarSS asset" time="0.228" classname="should correctly parse SugarSS asset">
+    </testcase>
+  </testsuite>
+  <testsuite name="typescript" timestamp="2018-12-11T02:36:41" tests="10" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/typescript.js" failures="0" time="3.0799999999999996">
+    <testcase name="typescript should produce a ts bundle using ES6 imports" time="0.305" classname="should produce a ts bundle using ES6 imports">
+    </testcase>
+    <testcase name="typescript should produce a ts bundle using commonJS require" time="0.334" classname="should produce a ts bundle using commonJS require">
+    </testcase>
+    <testcase name="typescript should support json require" time="0.312" classname="should support json require">
+    </testcase>
+    <testcase name="typescript should support env variables" time="0.317" classname="should support env variables">
+    </testcase>
+    <testcase name="typescript should support importing a URL to a raw asset" time="0.3" classname="should support importing a URL to a raw asset">
+    </testcase>
+    <testcase name="typescript should minify in production mode" time="0.329" classname="should minify in production mode">
+    </testcase>
+    <testcase name="typescript should support loading tsconfig.json" time="0.277" classname="should support loading tsconfig.json">
+    </testcase>
+    <testcase name="typescript should support compiling JSX" time="0.299" classname="should support compiling JSX">
+    </testcase>
+    <testcase name="typescript should use esModuleInterop by default" time="0.268" classname="should use esModuleInterop by default">
+    </testcase>
+    <testcase name="typescript fs.readFileSync should inline a file as a string" time="0.339" classname="fs.readFileSync should inline a file as a string">
+    </testcase>
+  </testsuite>
+  <testsuite name="vue" timestamp="2018-12-11T02:36:44" tests="8" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/vue.js" failures="0" time="2.964">
+    <testcase name="vue should produce a basic vue bundle" time="0.68" classname="should produce a basic vue bundle">
+    </testcase>
+    <testcase name="vue should produce a vue bundle with dependencies" time="0.455" classname="should produce a vue bundle with dependencies">
+    </testcase>
+    <testcase name="vue should produce a vue bundle using preprocessors" time="0.43" classname="should produce a vue bundle using preprocessors">
+    </testcase>
+    <testcase name="vue should produce a vue bundle using a functional component" time="0.187" classname="should produce a vue bundle using a functional component">
+    </testcase>
+    <testcase name="vue should produce a vue bundle using scoped styles" time="0.29" classname="should produce a vue bundle using scoped styles">
+    </testcase>
+    <testcase name="vue should produce a vue bundle using CSS modules" time="0.286" classname="should produce a vue bundle using CSS modules">
+    </testcase>
+    <testcase name="vue should bundle nested components dynamically" time="0.375" classname="should bundle nested components dynamically">
+    </testcase>
+    <testcase name="vue should produce a basic production vue bundle" time="0.261" classname="should produce a basic production vue bundle">
+    </testcase>
+  </testsuite>
+  <testsuite name="wasm" timestamp="2018-12-11T02:36:47" tests="0" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/wasm.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="--target=browser" timestamp="2018-12-11T02:36:47" tests="3" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/wasm.js" failures="0" time="0.9570000000000001">
+    <testcase name="wasm --target=browser should preload a wasm file for a sync require" time="0.269" classname="should preload a wasm file for a sync require">
+    </testcase>
+    <testcase name="wasm --target=browser should load a wasm file asynchronously with dynamic import" time="0.352" classname="should load a wasm file asynchronously with dynamic import">
+    </testcase>
+    <testcase name="wasm --target=browser should load a wasm file in parallel with a dynamic JS import" time="0.336" classname="should load a wasm file in parallel with a dynamic JS import">
+    </testcase>
+  </testsuite>
+  <testsuite name="--target=node" timestamp="2018-12-11T02:36:48" tests="3" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/wasm.js" failures="0" time="0.9410000000000001">
+    <testcase name="wasm --target=node should preload a wasm file for a sync require" time="0.286" classname="should preload a wasm file for a sync require">
+    </testcase>
+    <testcase name="wasm --target=node should load a wasm file asynchronously with dynamic import" time="0.338" classname="should load a wasm file asynchronously with dynamic import">
+    </testcase>
+    <testcase name="wasm --target=node should load a wasm file in parallel with a dynamic JS import" time="0.317" classname="should load a wasm file in parallel with a dynamic JS import">
+    </testcase>
+  </testsuite>
+  <testsuite name="watcher" timestamp="2018-12-11T02:36:49" tests="6" file="/Users/mteegarden/dev/repos/parcel-copy/packages/core/integration-tests/test/watcher.js" failures="0" time="5.535">
+    <testcase name="watcher should rebuild on file change" time="0.92" classname="should rebuild on file change">
+    </testcase>
+    <testcase name="watcher should re-generate bundle tree when files change" time="0.745" classname="should re-generate bundle tree when files change">
+    </testcase>
+    <testcase name="watcher should only re-package bundles that changed" time="1.879" classname="should only re-package bundles that changed">
+    </testcase>
+    <testcase name="watcher should unload assets that are orphaned" time="0.765" classname="should unload assets that are orphaned">
+    </testcase>
+    <testcase name="watcher should recompile all assets when a config file changes" time="0.64" classname="should recompile all assets when a config file changes">
+    </testcase>
+    <testcase name="watcher should rebuild if the file behind a symlink changes" time="0.586" classname="should rebuild if the file behind a symlink changes">
+    </testcase>
+  </testsuite>
+</testsuites>

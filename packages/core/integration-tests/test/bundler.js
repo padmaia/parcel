@@ -4,7 +4,7 @@ const path = require('path');
 const {assertBundleTree, bundle, bundler, nextBundle} = require('./utils');
 
 describe('bundler', function() {
-  it('should bundle once before exporting middleware', async function() {
+  it.skip('should bundle once before exporting middleware', async function() {
     let b = bundler(
       path.join(__dirname, '/integration/bundler-middleware/index.js')
     );
@@ -14,7 +14,7 @@ describe('bundler', function() {
     assert(b.entryAssets);
   });
 
-  it('should defer bundling if a bundle is pending', async () => {
+  it.skip('should defer bundling if a bundle is pending', async () => {
     const b = bundler(path.join(__dirname, '/integration/html/index.html'));
     b.pending = true; // bundle in progress
     const spy = sinon.spy(b, 'bundle');

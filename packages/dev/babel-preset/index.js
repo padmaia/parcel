@@ -1,6 +1,13 @@
-const preset =
-  parseInt(process.versions.node, 10) < 8
-    ? require('./legacy')
-    : require('./modern');
-
-module.exports = preset;
+module.exports = () => ({
+  presets: [
+    [
+      require('@babel/preset-env'),
+      {
+        targets: {
+          node: 8
+        }
+      }
+    ],
+    require('@babel/preset-flow')
+  ]
+});

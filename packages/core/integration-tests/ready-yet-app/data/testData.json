@@ -1,0 +1,514 @@
+{
+  "tests": [
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should produce a basic JS bundle with CommonJS requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should produce a basic JS bundle with ES6 imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should produce a basic JS bundle using Babel 6",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should auto install babel-core v6",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should auto install @babel/core v7",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should auto install babel plugins",
+      "status": "failing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should produce a basic JS bundle with object rest spread support",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should bundle node_modules on --target=browser",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not bundle node_modules on --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not bundle node_modules on --target=electron",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should bundle node_modules on --target=node and --bundle-node-modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should bundle node_modules on --target=electron and --bundle-node-modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should produce a JS bundle with default exports and no imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should split bundles when a dynamic import is used with --target=browser",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should split bundles when a dynamic import is used with --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should load dynamic bundle when entry is in a subdirectory",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support bundling workers",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support bundling workers with different order",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support bundling service-workers",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support bundling workers with circular dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support bundling in workers with other loaders",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should dynamic import files which import raw files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should return all exports as an object when using ES modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should hoist common dependencies into a parent bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not duplicate a module which is already in a parent bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support hoisting shared modules with async imports up multiple levels",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support requiring JSON files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support requiring JSON5 files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support importing a URL to a raw asset",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should minify JS in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should use uglify config",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should insert global variables when needed",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should handle re-declaration of the global constant",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not insert environment variables on --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not insert environment variables on --target=electron",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should insert environment variables on --target=browser",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should insert environment variables from a file",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support adding implicit dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support requiring YAML files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support requiring TOML files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support requiring CoffeeScript files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should resolve the browser field before main",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not resolve the browser field for --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should resolve advanced browser resolution",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not resolve advanced browser resolution with --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should resolve the module field before main",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should resolve the module field before main",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should resolve the main field",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should minify JSON files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should minify JSON5 files",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should minify YAML for production",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should minify TOML for production",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling with babel using .babelrc config",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should compile with babel with default engines if no config",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling with babel using browserlist",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support splitting babel-polyfill using browserlist",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling with babel using browserslist for different environments",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not compile node_modules by default",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should compile node_modules if legacy browserify options are found",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should compile node_modules with browserslist to app target",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should compile node_modules when symlinked with a source field in package.json",
+      "status": "failing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not compile node_modules with a source field in package.json when not symlinked",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling JSX",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling JSX in JS files with React dependency",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling JSX in JS files with Preact dependency",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling JSX in JS files with Nerv dependency",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support compiling JSX in JS files with Hyperapp dependency",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support optional dependencies in try...catch blocks",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support excluding dependencies in falsy branches",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not autoinstall if resolve failed on installed module",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not autoinstall if resolve failed on aliased module",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should ignore require if it is defined in the scope",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should expose to CommonJS entry point",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should expose to RequireJS entry point",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should expose variable with --browser-global",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should set `define` to undefined so AMD checks in UMD modules do not pass",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not dedupe imports with different contents",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not dedupe imports with same content but different absolute dependency paths",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should dedupe imports with same content and same dependency paths",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should not dedupe assets that exist in more than one bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support importing HTML from JS async",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support importing HTML from JS async with --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should support importing HTML from JS sync",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should strip away flow types of node modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "javascript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
+      "title": "should stub require.cache",
+      "status": "passing"
+    }
+  ]
+}

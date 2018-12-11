@@ -1,2 +1,1 @@
-exports.a = 5;
-exports.b = 5;
+exports.a = 5; exports.b = 5;
