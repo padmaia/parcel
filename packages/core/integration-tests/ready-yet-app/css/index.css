@@ -102,8 +102,8 @@ i {
   background: #8ec56a;
 }
 
-.Test.failingInDev {
-  background: #e7c532;
+.Test.failing {
+  background: #f5a623;
 }
 
 .Test:hover {

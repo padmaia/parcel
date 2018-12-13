@@ -1,513 +1,2019 @@
 {
   "tests": [
     {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should bundle once before exporting middleware",
+      "status": "pending"
+    },
+    {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should defer bundling if a bundle is pending",
+      "status": "pending"
+    },
+    {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should enforce asset type path to be a string",
+      "status": "passing"
+    },
+    {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should enforce setup before bundling",
+      "status": "passing"
+    },
+    {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should support multiple entry points",
+      "status": "passing"
+    },
+    {
+      "fileName": "bundler",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/bundler.js",
+      "title": "should support multiple entry points as a glob",
+      "status": "passing"
+    },
+    {
+      "fileName": "contentHashing",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/contentHashing.js",
+      "title": "should update content hash when content changes",
+      "status": "passing"
+    },
+    {
+      "fileName": "contentHashing",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/contentHashing.js",
+      "title": "should update content hash when raw asset changes",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should produce two bundles when importing a CSS file",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support loading a CSS bundle along side dynamic imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support importing CSS from a CSS file",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support linking to assets with url() from CSS",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support linking to assets with url() from CSS in production",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support transforming with postcss",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should support transforming with postcss twice with the same result",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should minify CSS in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should automatically install postcss plugins with npm if needed",
+      "status": "passing"
+    },
+    {
+      "fileName": "css",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/css.js",
+      "title": "should automatically install postcss plugins with yarn if needed",
+      "status": "passing"
+    },
+    {
+      "fileName": "elm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/elm.js",
+      "title": "should produce a basic Elm bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "elm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/elm.js",
+      "title": "should produce a elm bundle with debugger",
+      "status": "passing"
+    },
+    {
+      "fileName": "elm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/elm.js",
+      "title": "should remove debugger in production",
+      "status": "passing"
+    },
+    {
+      "fileName": "elm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/elm.js",
+      "title": "should minify Elm in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "encodedURI",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/encodedURI.js",
+      "title": "should support bundling files which names in encoded URI",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file as a string",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file as a buffer",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require alias",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require inline",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require assignment",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require assignment alias",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require destructure",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should inline a file with fs require destructure assignment",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should not evaluate fs calls when package.browser.fs is false",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should ignore fs calls when the filename is not evaluable",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should ignore fs calls when the options are not evaluable",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should leave an attempt to read a file unchanged",
+      "status": "passing"
+    },
+    {
+      "fileName": "fs",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/fs.js",
+      "title": "should leave an attempt to read a file unchanged",
+      "status": "passing"
+    },
+    {
+      "fileName": "glob",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/glob.js",
+      "title": "should require a glob of files",
+      "status": "passing"
+    },
+    {
+      "fileName": "glob",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/glob.js",
+      "title": "should require nested directories with a glob",
+      "status": "passing"
+    },
+    {
+      "fileName": "glob",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/glob.js",
+      "title": "should support importing a glob of CSS files",
+      "status": "passing"
+    },
+    {
+      "fileName": "glsl",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/glsl.js",
+      "title": "should support requiring GLSL files via glslify",
+      "status": "passing"
+    },
+    {
+      "fileName": "graphql",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/graphql.js",
+      "title": "should support requiring graphql files",
+      "status": "passing"
+    },
+    {
+      "fileName": "graphql",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/graphql.js",
+      "title": "should support importing other graphql files from a graphql file",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should emit an HMR update for the file that changed",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should not enable HMR for --target=node",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should enable HMR for --target=electron",
+      "status": "failing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should emit an HMR update for all new dependencies along with the changed file",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should emit an HMR error on bundle failure",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should emit an HMR error to new connections after a bundle failure",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should emit an HMR error-resolved on build after error",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should accept HMR updates in the runtime",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should call dispose and accept callbacks",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should work across bundles",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should log emitted errors and show an error overlay",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should log when errors resolve",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should make a secure connection",
+      "status": "passing"
+    },
+    {
+      "fileName": "hmr",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/hmr.js",
+      "title": "should make a secure connection with custom certificate",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support bundling HTML",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should find href attr when not first",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support transforming HTML with posthtml",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should find assets inside posthtml",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should add dependencies referenced by posthtml-include",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should add dependencies referenced by plugins",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should insert sibling CSS bundles for JS files in the HEAD",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should insert sibling bundles before body element if no HEAD",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should insert sibling JS bundles for CSS files in the HEAD",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should insert sibling bundles at correct location in tree when optional elements are absent",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should minify HTML in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should read .htmlnanorc and minify HTML in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should not minify default values inside HTML in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should not prepend the public path to assets with remote URLs",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should not prepend the public path to hash links",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should detect virtual paths",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should not update root/main file in the bundles",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should conserve the spacing in the HTML tags",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support child bundles of different types",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support circular dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support bundling HTM",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should detect srcset attribute",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should detect srcset attribute of source element",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support webmanifest",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should treat webmanifest as an entry module so it doesn't get content hashed",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should bundle svg files correctly",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should bundle svg files using <image xlink:href=\"\"> correctly",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should support data attribute of object element",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should resolve assets containing spaces",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should process inline JS",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should process inline styles",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should process inline styles using lang",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should process inline non-js scripts",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should handle inline css with @imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "html",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/html.js",
+      "title": "should error on imports and requires in inline <script> tags",
+      "status": "passing"
+    },
+    {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should produce a basic JS bundle with CommonJS requires",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should produce a basic JS bundle with ES6 imports",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should produce a basic JS bundle using Babel 6",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should auto install babel-core v6",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should auto install @babel/core v7",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should auto install babel plugins",
-      "status": "failing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should produce a basic JS bundle with object rest spread support",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should bundle node_modules on --target=browser",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not bundle node_modules on --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not bundle node_modules on --target=electron",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should bundle node_modules on --target=node and --bundle-node-modules",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should bundle node_modules on --target=electron and --bundle-node-modules",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should produce a JS bundle with default exports and no imports",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should split bundles when a dynamic import is used with --target=browser",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should split bundles when a dynamic import is used with --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should load dynamic bundle when entry is in a subdirectory",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support bundling workers",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support bundling workers with different order",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support bundling service-workers",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support bundling workers with circular dependencies",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support bundling in workers with other loaders",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should dynamic import files which import raw files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should return all exports as an object when using ES modules",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should hoist common dependencies into a parent bundle",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not duplicate a module which is already in a parent bundle",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support hoisting shared modules with async imports up multiple levels",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support requiring JSON files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support requiring JSON5 files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support importing a URL to a raw asset",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should minify JS in production mode",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should use uglify config",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should insert global variables when needed",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should handle re-declaration of the global constant",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not insert environment variables on --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not insert environment variables on --target=electron",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should insert environment variables on --target=browser",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should insert environment variables from a file",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support adding implicit dependencies",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support requiring YAML files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support requiring TOML files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support requiring CoffeeScript files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should resolve the browser field before main",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not resolve the browser field for --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should resolve advanced browser resolution",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not resolve advanced browser resolution with --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should resolve the module field before main",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should resolve the module field before main",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should resolve the main field",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should minify JSON files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should minify JSON5 files",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should minify YAML for production",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should minify TOML for production",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling with babel using .babelrc config",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should compile with babel with default engines if no config",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling with babel using browserlist",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support splitting babel-polyfill using browserlist",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling with babel using browserslist for different environments",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not compile node_modules by default",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should compile node_modules if legacy browserify options are found",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should compile node_modules with browserslist to app target",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should compile node_modules when symlinked with a source field in package.json",
-      "status": "failing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not compile node_modules with a source field in package.json when not symlinked",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling JSX",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling JSX in JS files with React dependency",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling JSX in JS files with Preact dependency",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling JSX in JS files with Nerv dependency",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support compiling JSX in JS files with Hyperapp dependency",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support optional dependencies in try...catch blocks",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support excluding dependencies in falsy branches",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not autoinstall if resolve failed on installed module",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not autoinstall if resolve failed on aliased module",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should ignore require if it is defined in the scope",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should expose to CommonJS entry point",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should expose to RequireJS entry point",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should expose variable with --browser-global",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should set `define` to undefined so AMD checks in UMD modules do not pass",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not dedupe imports with different contents",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not dedupe imports with same content but different absolute dependency paths",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should dedupe imports with same content and same dependency paths",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should not dedupe assets that exist in more than one bundle",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support importing HTML from JS async",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support importing HTML from JS async with --target=node",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should support importing HTML from JS sync",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should strip away flow types of node modules",
-      "status": "passing"
+      "status": "pending"
     },
     {
       "fileName": "javascript",
       "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/javascript.js",
       "title": "should stub require.cache",
+      "status": "pending"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support requiring less files",
+      "status": "passing"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support less imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support advanced less imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support requiring empty less files",
+      "status": "passing"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support linking to assets with url() from less",
+      "status": "passing"
+    },
+    {
+      "fileName": "less",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/less.js",
+      "title": "should support transforming less with postcss",
+      "status": "passing"
+    },
+    {
+      "fileName": "parser",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/parser.js",
+      "title": "should support case-insensitive file extension",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should support bundling HTML",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should support include and extends files",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should support variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should support mixins",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should support filters",
+      "status": "passing"
+    },
+    {
+      "fileName": "pug",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/pug.js",
+      "title": "should minify HTML in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "reason",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/reason.js",
+      "title": "should produce a bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support requiring sass files",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support requiring scss files",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support scss imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support requiring empty scss files",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support linking to assets with url() from scss",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support transforming scss with postcss",
+      "status": "passing"
+    },
+    {
+      "fileName": "sass",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sass.js",
+      "title": "should support advanced import syntax",
+      "status": "passing"
+    },
+    {
+      "fileName": "schema-jsonld",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/schema-jsonld.js",
+      "title": "Should parse a LD+JSON schema and collect dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports default imports and exports of expressions",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports default imports and exports of declarations",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports default imports and exports of anonymous declarations",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports default imports and exports of variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports named imports and exports of declarations",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports named imports and exports of variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports renaming superclass identifiers",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports renaming imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports renaming exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports importing a namespace of exported values",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting all exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting all exports from multiple modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports importing all exports re-exported from multiple modules deep",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting all exports from multiple modules deep",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting individual named exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting default exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting a namespace from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "excludes default when re-exporting a module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports multiple exports of the same variable",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports live bindings of named exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports dynamic import syntax for code splitting",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should not export function arguments",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports import default CommonJS interop",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports import default CommonJS interop with dynamic imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports exporting an import",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "keeps side effects by default",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports the package.json sideEffects: false flag",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports wildcards with sideEffects: false",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports the package.json sideEffects flag with an array",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "missing exports should be replaced with an empty object",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports importing a namespace from a commonjs module when code split",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "removes unused exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "support exporting a ES6 module exported as CommonJS",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should support named imports on wrapped modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should support the jsx pragma",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should not nameclash with internal variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of commonjs modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports default imports of commonjs modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports named imports of commonjs modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports namespace imports of commonjs modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 default export of expressions",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 default export of declarations",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 default export of variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 named export of declarations",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 named export of variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 renamed exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 module re-exporting all exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require of es6 module re-exporting all exports from multiple modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting individual named exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting default exports from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports re-exporting a namespace from another module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "excludes default when re-exporting a module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports hybrid ES6 + commonjs modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "inserts commonjs exports object in the right place",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "define exports in the outermost scope",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports live bindings of named exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should wrap modules that use eval in a function",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should wrap modules that have a top-level return",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should wrap modules that access `module` as a free variable",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should wrap modules that non-statically access `module`",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports assigning to this as exports object",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports assigning to this as exports object in wrapped module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports module object properties",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports require.resolve calls",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports requiring a re-exported ES6 import",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports object pattern requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "eliminates CommonJS export object where possible",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports multiple assignments in one line",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports circular dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "executes modules in the correct order",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports conditional requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports requires inside functions",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports requires inside functions with es6 import side effects",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "hoists import calls to the top",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports requires inside functions with es6 re-export side effects",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "can bundle the node stream module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "missing exports should be replaced with an empty object",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "removes unused exports",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "supports removing an unused inline export with uglify minification",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should support sideEffects: false",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should support two aliases to the same module",
+      "status": "passing"
+    },
+    {
+      "fileName": "scope-hoisting",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/scope-hoisting.js",
+      "title": "should support optional requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve files",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve a default page if the main bundle is an HTML asset",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve a 404 if the file does not exist",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve a 500 if the bundler errored",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve a 500 response with error stack trace when bundler has errors",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve a 500 response without stack trace when bundler has errors in production",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should support HTTPS",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should support HTTPS via custom certificate",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should support setting a public url",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should serve static assets as well as html",
+      "status": "passing"
+    },
+    {
+      "fileName": "server",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/server.js",
+      "title": "should work with query parameters that contain a dot",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap as a child of a JS bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap as a child of a TS bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap as a child of a nested TS bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap for a js file with requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap for a minified js bundle with requires",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should create a valid sourcemap reference for a child bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should load existing sourcemaps of libraries",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should load inline sourcemaps of libraries",
+      "status": "passing"
+    },
+    {
+      "fileName": "sourcemaps",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sourcemaps.js",
+      "title": "should load referenced contents of sourcemaps",
+      "status": "passing"
+    },
+    {
+      "fileName": "stylus",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/stylus.js",
+      "title": "should support requiring stylus files",
+      "status": "passing"
+    },
+    {
+      "fileName": "stylus",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/stylus.js",
+      "title": "should support requiring stylus files with dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "stylus",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/stylus.js",
+      "title": "should support linking to assets with url() from stylus",
+      "status": "passing"
+    },
+    {
+      "fileName": "stylus",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/stylus.js",
+      "title": "should support transforming stylus with postcss",
+      "status": "passing"
+    },
+    {
+      "fileName": "stylus",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/stylus.js",
+      "title": "should support requiring stylus files with glob dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "sugarss",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/sugarss.js",
+      "title": "should correctly parse SugarSS asset",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should produce a ts bundle using ES6 imports",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should produce a ts bundle using commonJS require",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should support json require",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should support env variables",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should support importing a URL to a raw asset",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should minify in production mode",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should support loading tsconfig.json",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should support compiling JSX",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "should use esModuleInterop by default",
+      "status": "passing"
+    },
+    {
+      "fileName": "typescript",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/typescript.js",
+      "title": "fs.readFileSync should inline a file as a string",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a basic vue bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a vue bundle with dependencies",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a vue bundle using preprocessors",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a vue bundle using a functional component",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a vue bundle using scoped styles",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a vue bundle using CSS modules",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should bundle nested components dynamically",
+      "status": "passing"
+    },
+    {
+      "fileName": "vue",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/vue.js",
+      "title": "should produce a basic production vue bundle",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should preload a wasm file for a sync require",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should load a wasm file asynchronously with dynamic import",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should load a wasm file in parallel with a dynamic JS import",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should preload a wasm file for a sync require",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should load a wasm file asynchronously with dynamic import",
+      "status": "passing"
+    },
+    {
+      "fileName": "wasm",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/wasm.js",
+      "title": "should load a wasm file in parallel with a dynamic JS import",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should rebuild on file change",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should re-generate bundle tree when files change",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should only re-package bundles that changed",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should unload assets that are orphaned",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should recompile all assets when a config file changes",
+      "status": "passing"
+    },
+    {
+      "fileName": "watcher",
+      "link": "https://github.com/padmaia/parcel/tree/pull-out-integration-tests/packages/core/integration-tests/test/watcher.js",
+      "title": "should rebuild if the file behind a symlink changes",
       "status": "passing"
     }
   ]

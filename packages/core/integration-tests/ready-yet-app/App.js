@@ -1,6 +1,9 @@
 import React from 'react';
+import ProgressBar from './ProgressBar';
 import Graph from './Graph';
 import HeatMap from './HeatMap';
+import IsItReady from './IsItReady';
+import Footer from './Footer';
 
 const tooltipIcons = {
   passing: '\u2705',
@@ -58,14 +61,16 @@ export default class App extends React.Component {
   };
 
   render() {
-    let {testData, graphData} = this.props;
+    let {testData, graphData, mostRecent, width} = this.props;
     let tooltipData = this.state.tooltipData;
     let tooltip = tooltipData ? <Tooltip {...tooltipData} /> : null;
 
     return (
       <>
-        <h1>Is it ready yet?</h1>
+        <ProgressBar data={mostRecent} />
+        <IsItReady data={mostRecent} testData={testData} />
         <Graph
+          width={width}
           graphData={graphData}
           onMouseOut={this.handleMouseOut}
           onMouseOver={this.handleMouseOver}
@@ -75,6 +80,7 @@ export default class App extends React.Component {
           onMouseOut={this.handleMouseOut}
           onMouseOver={this.handleMouseOver}
         />
+        <Footer />
         {tooltip}
       </>
     );

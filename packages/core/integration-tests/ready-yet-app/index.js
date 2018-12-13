@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import fs from 'fs';
 import App from './App';
 import testData from './data/testData';
@@ -42,7 +42,19 @@ function processGraphData(rawGraphData) {
     });
 }
 
-render(
-  <App testData={testData} graphData={graphData} />,
-  document.getElementById('app')
-);
+let render = () => {
+  let root = document.getElementById('app');
+
+  ReactDOM.render(
+    <App
+      width={root.clientWidth}
+      testData={testData}
+      graphData={graphData}
+      mostRecent={graphData[graphData.length - 1]}
+    />,
+    document.getElementById('app')
+  );
+};
+
+window.addEventListener('resize', render, false);
+render();
