@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "demo": "node -r @parcel/babel-register ./node_modules/.bin/parcel src/index.js"
+    "demo": "PARCEL_WORKERS=1 node -r @parcel/babel-register ./node_modules/.bin/parcel src/index.js",
+    "clean-demo": "rm -rf .parcel-cache dist && yarn demo"
   },
   "devDependencies": {
     "@parcel/babel-register": "^2.0.0",

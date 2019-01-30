@@ -98,19 +98,23 @@ export default class Parcel {
 
   async build() {
     try {
-      // console.log('Starting build'); // eslint-disable-line no-console
+      console.log('Starting build'); // eslint-disable-line no-console
+      console.log('Building Graph');
       let assetGraph = await this.assetGraphBuilder.build();
       // await graph.dumpGraphViz();
+      console.log('Bundling');
       let bundleGraph = await this.bundle(assetGraph);
+      console.log('Packaging');
       await this.package(bundleGraph);
 
       if (!this.options.cliOpts.watch && this.options.killWorkers !== false) {
         await this.farm.end();
       }
 
-      // console.log('Finished build'); // eslint-disable-line no-console
+      console.log('Finished build'); // eslint-disable-line no-console
       return bundleGraph;
     } catch (e) {
+      console.log('BUILD ERROR');
       if (e !== abortError) {
         console.error(e); // eslint-disable-line no-console
       }

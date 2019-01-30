@@ -122,6 +122,7 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   async resolve(dep: Dependency, {signal}: BuildOpts) {
+    // console.log('RESOLVING DEP', dep);
     let resolvedPath;
     try {
       resolvedPath = await this.resolverRunner.resolve(dep);
@@ -147,6 +148,7 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   async transform(req: TransformerRequest, {signal, shallow}: BuildOpts) {
+    // console.log('TRANSFORMING', req);
     let cacheEntry = await this.runTransform(req);
 
     if (signal.aborted) throw abortError;

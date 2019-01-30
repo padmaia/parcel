@@ -1,6 +1,6 @@
 {
   "name": "source",
-  "main": "lib/test.js",
+  "main": "src/test.js",
   "source": {
     "./lib/*": "./src/$1"
   }

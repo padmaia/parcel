@@ -25,7 +25,7 @@ function getRootDir(files) {
     }
   }
 
-  return cur ? cur.dir : process.cwd();
+  return cur ? path.resolve(cur.dir) : process.cwd();
 }
 
 module.exports = getRootDir;
