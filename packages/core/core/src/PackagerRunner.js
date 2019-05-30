@@ -3,7 +3,7 @@
 import {Readable} from 'stream';
 import type {ParcelOptions, Blob, FilePath} from '@parcel/types';
 import type {Bundle as InternalBundle} from './types';
-import type Config from './Config';
+import type Config from './ParcelConfig';
 import type InternalBundleGraph from './BundleGraph';
 
 import invariant from 'assert';
