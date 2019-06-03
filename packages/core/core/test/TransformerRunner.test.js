@@ -28,25 +28,3 @@ const DEFAULT_ENV = new Environment({
     browsers: ['> 1%']
   }
 });
-
-describe.skip('TransformerRunner', function() {
-  it('should transform some shit', async function() {
-    let dummyAsset = {
-      filePath: __dirname + '/fixtures/module-a.js',
-      env: DEFAULT_ENV
-    };
-
-    let result = await runner.transform(dummyAsset);
-    console.log(JSON.stringify(result, null, 2)); // eslint-disable-line no-console
-  });
-
-  it.skip('should transform some shitty typescript', async function() {
-    let dummyAsset = {
-      filePath: __dirname + '/fixtures/module-a.ts',
-      env: DEFAULT_ENV
-    };
-
-    let result = await runner.transform(dummyAsset);
-    console.log(result); // eslint-disable-line no-console
-  });
-});

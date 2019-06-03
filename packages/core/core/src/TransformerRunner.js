@@ -9,7 +9,8 @@ import type {
   Transformer,
   AssetRequest,
   TransformerResult,
-  ParcelOptions
+  ParcelOptions,
+  ConfigRequest
 } from '@parcel/types';
 import type {CacheEntry} from './types';
 
@@ -25,14 +26,17 @@ import {TapStream, unique} from '@parcel/utils';
 import {createReadStream} from 'fs';
 
 import Dependency from './Dependency';
-import type Config from './ParcelConfig';
+import type ParcelConfig from './ParcelConfig';
 import ResolverRunner from './ResolverRunner';
 import {report} from './ReporterRunner';
 import {MutableAsset, assetToInternalAsset} from './public/Asset';
 import InternalAsset from './Asset';
 
+import type Config from './Config';
+import type {NodeId} from './types';
+
 type Opts = {|
-  config: Config,
+  config: ParcelConfig,
   options: ParcelOptions
 |};
 
@@ -42,7 +46,7 @@ const BUFFER_LIMIT = 5000000; // 5mb
 
 export default class TransformerRunner {
   options: ParcelOptions;
-  config: Config;
+  config: ParcelConfig;
   resolverRunner: ResolverRunner;
 
   constructor({config, options}: Opts) {
@@ -54,12 +58,18 @@ export default class TransformerRunner {
     });
   }
 
-  async transform(req: AssetRequest): Promise<CacheEntry> {
+  async transform(
+    req: AssetRequest,
+    loadConfig: () => Promise<Config>,
+    parentNodeId: NodeId
+  ): Promise<CacheEntry> {
     report({
       type: 'buildProgress',
       phase: 'transforming',
       request: req
     });
+
+    let config = await this.loadConfig(req, loadConfig, parentNodeId);
 
     // If a cache entry matches, no need to transform.
     let cacheEntry;
@@ -93,7 +103,7 @@ export default class TransformerRunner {
       sideEffects: req.sideEffects
     });
 
-    let pipeline = await this.config.getTransformers(req.filePath);
+    let pipeline = await config.getTransformers(req.filePath);
     let {assets, initialAssets} = await this.runPipeline(
       input,
       pipeline,
@@ -113,6 +123,23 @@ export default class TransformerRunner {
     );
     await Cache.set(reqCacheKey(req), cacheEntry);
     return cacheEntry;
+  }
+
+  async loadConfig(
+    request: AssetRequest,
+    loadConfig: (ConfigRequest, NodeId) => Promise<Config>,
+    parentNodeId: NodeId
+  ) {
+    let configRequest = {
+      filePath: request.filePath,
+      meta: {
+        pluginType: 'transformer'
+      }
+    };
+
+    let parcelConfig = await loadConfig(configRequest, parentNodeId);
+
+    return parcelConfig.result;
   }
 
   async runPipeline(

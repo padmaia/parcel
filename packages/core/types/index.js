@@ -220,6 +220,13 @@ export type File = {
   hash?: string
 };
 
+export type ConfigRequest = {|
+  filePath: FilePath,
+  plugin: PackageName,
+  meta: any,
+  result: ?any
+|};
+
 export type AssetRequest = {|
   filePath: FilePath,
   env: Environment,
