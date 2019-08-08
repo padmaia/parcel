@@ -15,9 +15,8 @@ const {
 const {symlinkSync, copyFileSync} = require('fs');
 
 const inputDir = path.join(__dirname, '/input');
-const utimes = require('@ronomon/utimes');
 
-describe.only('babel', function() {
+describe('babel', function() {
   let subscription;
   beforeEach(async function() {
     // TODO maybe don't do this for all tests
@@ -283,18 +282,11 @@ describe.only('babel', function() {
     assert(file.includes('hello there'));
   });
 
-  it.only('should rebuild when babel config changes', async function() {
+  it('should rebuild when babel config changes', async function() {
     let differentPath = path.join(inputDir, 'differentConfig');
     let configPath = path.join(inputDir, '.babelrc');
 
     await ncp(path.join(__dirname, 'integration/babel-custom'), inputDir);
-
-    let file = await fs.readFile(configPath, 'utf8');
-    console.log('CONFIG FILE BEFORE', file);
-
-    let stats = await fs.stat(configPath);
-    console.log('STATS', stats);
-    let firstMtime = stats.mtime;
 
     let b = bundler(path.join(inputDir, 'index.js'), {
       outputFS: fs,
@@ -313,24 +305,9 @@ describe.only('babel', function() {
     let distFile = await fs.readFile(path.join(distDir, 'index.js'), 'utf8');
     assert(distFile.includes('hello there'));
     copyFileSync(differentPath, configPath);
-    await new Promise((resolve, reject) => {
-      utimes.utimes(
-        configPath,
-        447775200000,
-        447775200000,
-        447775200000,
-        err => {
-          if (err) return reject(err);
-          return resolve();
-        }
-      );
-    });
-    stats = await fs.stat(configPath);
-    let sencondMtime = stats.mtime;
-    console.log('MTIMES', firstMtime, sencondMtime);
-    file = await fs.readFile(configPath, 'utf8');
-    console.log('CONFIG FILE AFTER', file);
-    console.log('UPDATED CONFIG');
+    let now = Date.now();
+    // fs.copyFile does not reliably update mtime, which babel uses to invalidate cached file contents
+    await fs.utimes(configPath, now, now);
     await getNextBuild(b);
     distFile = await fs.readFile(path.join(distDir, 'index.js'), 'utf8');
     assert(!distFile.includes('hello there'));
