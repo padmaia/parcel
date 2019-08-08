@@ -21,6 +21,7 @@ export async function load(config: Config, options: ParcelOptions) {
     cwd: path.dirname(config.searchPath),
     root: options.projectRoot
   });
+  console.log('PARTIAL', partialConfig);
   if (partialConfig && partialConfig.hasFilesystemConfig()) {
     let {babelrc, config: configjs} = partialConfig;
     let {canBeRehydrated, dependsOnRelative, dependsOnLocal} = getStats(

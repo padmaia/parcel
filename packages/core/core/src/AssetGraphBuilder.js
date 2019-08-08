@@ -170,6 +170,7 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   async readFromCache(): Promise<?Array<Event>> {
+    console.log('CACHE OPTIONS', this.options.cache);
     if (this.options.cache === false) {
       return null;
     }
@@ -179,6 +180,7 @@ export default class AssetGraphBuilder extends EventEmitter {
     let requestGraph = await this.cache.get(requestGraphKey);
 
     if (assetGraph && requestGraph) {
+      console.log('USING CACHED GRAPHS');
       this.assetGraph = assetGraph;
       this.requestGraph = requestGraph;
 
@@ -189,6 +191,8 @@ export default class AssetGraphBuilder extends EventEmitter {
         snapshotPath,
         opts
       );
+    } else {
+      console.log('NOT USING CACHED GRAPHS');
     }
 
     return null;

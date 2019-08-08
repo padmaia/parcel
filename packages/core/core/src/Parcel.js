@@ -115,6 +115,7 @@ export default class Parcel {
 
     let resolvedOptions = nullthrows(this.#resolvedOptions);
     if (result.type === 'buildSuccess') {
+      console.log('WRITING GRAPHS TO CACHE');
       await this.#assetGraphBuilder.writeToCache();
     }
 

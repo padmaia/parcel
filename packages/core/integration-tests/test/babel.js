@@ -313,4 +313,36 @@ describe('babel', function() {
     assert(!distFile.includes('hello there'));
     assert(distFile.includes('something different'));
   });
+
+  it.only('should rerun babel.config.js files when starting up', async function() {
+    let firstBuildDate = new Date().toISOString();
+    process.env.BABEL_BUILD_DATE = firstBuildDate;
+    await bundle(
+      path.join(
+        __dirname,
+        '/integration/babel-config-js-startup-invalidation/index.js'
+      )
+    );
+
+    let file = await outputFS.readFile(path.join(distDir, 'index.js'), 'utf8');
+    console.log('FILE BEFORE', file);
+    assert(file.includes(firstBuildDate));
+
+    let secondBuildDate = new Date().toISOString();
+    process.env.BABEL_BUILD_DATE = secondBuildDate;
+    console.log('UPDATED BABEL BUILD DATE', process.env.BABEL_BUILD_DATE);
+    await bundle(
+      path.join(
+        __dirname,
+        '/integration/babel-config-js-startup-invalidation/index.js'
+      ),
+      {cache: true}
+    );
+
+    file = await outputFS.readFile(path.join(distDir, 'index.js'), 'utf8');
+    console.log('FILE AFTER', file);
+    console.log(firstBuildDate, secondBuildDate);
+    assert(!file.includes(firstBuildDate));
+    assert(file.includes(secondBuildDate));
+  });
 });
