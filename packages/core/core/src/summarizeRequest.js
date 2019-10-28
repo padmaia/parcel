@@ -32,6 +32,7 @@ async function summarizeDiskRequest(
   fs: FileSystem,
   req: AssetRequest
 ): Promise<{|content: Blob, hash: string, size: number|}> {
+  console.log('REQ', req);
   let code = req.code;
   let content: Blob;
   let hash: string;
