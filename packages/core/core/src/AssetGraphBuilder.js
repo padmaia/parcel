@@ -11,7 +11,10 @@ import type {
   ValidationOpts
 } from './types';
 import type ParcelConfig from './ParcelConfig';
+import type {RunRequestOpts} from './RequestTracker';
+import type {AssetGraphBuildRequest} from './requests';
 
+import invariant from 'assert';
 import EventEmitter from 'events';
 import nullthrows from 'nullthrows';
 import path from 'path';
@@ -144,10 +147,10 @@ export default class AssetGraphBuilder extends EventEmitter {
     ) {
       let currPriority = requestPriority.shift();
       let promises = [];
-      for (let node of this.requestTracker.getInvalidNodes()) {
-        if (node.value.type === currPriority) {
+      for (let request of this.requestTracker.getInvalidRequests()) {
+        if (request.type === currPriority) {
           promises.push(
-            this.runRequest(node.value.type, node.value.request, {signal})
+            this.runRequest(request.type, request.request, {signal})
           );
         }
       }
@@ -181,11 +184,11 @@ export default class AssetGraphBuilder extends EventEmitter {
     await Promise.all(promises);
   }
 
-  runRequest(type: string, request, runOpts) {
-    if (type === 'asset_request') {
-      this.assetRequests.push(request);
+  runRequest(requestType: string, request: any, runOpts: RunRequestOpts) {
+    if (request.type === 'asset_request') {
+      this.assetRequests.push(request.request);
     }
-    return this.requestTracker.runRequest(type, request, runOpts);
+    return this.requestTracker.runRequest(requestType, request, runOpts);
   }
 
   async processIncompleteAssetGraphNode(
@@ -202,7 +205,8 @@ export default class AssetGraphBuilder extends EventEmitter {
     });
 
     if (requestType === 'asset_request') {
-      for (let asset of result.assets) {
+      let assets = nullthrows(result).assets;
+      for (let asset of assets) {
         this.changedAssets.set(asset.id, asset); // ? Is this right?
       }
     }

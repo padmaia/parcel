@@ -12,22 +12,23 @@ import Graph, {type GraphOpts} from './Graph';
 import {assertSignalNotAborted} from './utils';
 
 type SerializedRequestGraph = {|
-  ...GraphOpts<RequestGraphNode>,
+  ...GraphOpts<RequestGraphNode, RequestGraphEdgeType>,
   invalidNodeIds: Set<NodeId>,
   globNodeIds: Set<NodeId>,
-  depVersionRequestNodeIds: Set<NodeId>
+  unpredicatableNodeIds: Set<NodeId>
 |};
 
 type FileNode = {|id: string, +type: 'file', value: File|};
 type GlobNode = {|id: string, +type: 'glob', value: Glob|};
 type RequestDesc = string | JSONObject;
 type RequestResult = JSONValue;
-type Request = {|
+export type Request = {|
   id: string,
   +type: string,
-  request: RequestDesc,
-  result?: RequestResult
+  request: any,
+  result?: any
 |};
+export type RunRequestOpts = {|signal: ?AbortSignal|};
 type RequestNode = {|
   id: string,
   +type: 'request',
@@ -125,7 +126,10 @@ export class RequestGraph extends Graph<
     this.incompleteNodeIds.delete(requestNode.id);
   }
 
-  replaceSubrequests(request: Request, subrequestNodes: Array<RequestNode>) {
+  replaceSubrequests(
+    request: Request,
+    subrequestNodes: Array<RequestGraphNode>
+  ) {
     let requestNode = this.getRequestNode(request.id);
     if (!this.hasNode(requestNode.id)) {
       this.addNode(requestNode);
@@ -211,11 +215,11 @@ export class RequestGraph extends Graph<
     this.unpredicatableNodeIds.add(requestNode.id);
   }
 
-  clearInvalidations(node) {
+  clearInvalidations(node: RequestNode) {
     this.unpredicatableNodeIds.delete(node.id);
-    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by update');
-    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by delete');
-    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by create');
+    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by_update');
+    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by_delete');
+    this.replaceNodesConnectedTo(node, [], null, 'invalidated_by_create');
   }
 
   respondToFSEvents(events: Array<Event>): boolean {
@@ -274,24 +278,24 @@ export function generateRequestId(type: string, request: JSONObject | string) {
   return md5FromObject({type, request});
 }
 
-export interface RequestRunner<TRequest, TResult> {
-  run(TRequest): TResult;
-  onComplete(TRequest, TResult, RequestGraph): void;
-}
+export type RequestRunner = {
+  +run: (any, RequestGraph) => any,
+  +onComplete: (any, any, RequestGraph) => void,
+  ...
+};
 
-type RequestTrackerAPI = {|
-  invalidateOnFileCreate: Glob => void,
-  invalidateOnFileDelete: FilePath => void,
-  invalidateOnFileUpdate: FilePath => void,
-  invalidateOnStartup: () => void,
-  replaceSubrequests: (Array<Request>) => void
-|};
+// type RequestTrackerAPI = {|
+//   invalidateOnFileCreate: Glob => void,
+//   invalidateOnFileDelete: FilePath => void,
+//   invalidateOnFileUpdate: FilePath => void,
+//   invalidateOnStartup: () => void,
+//   replaceSubrequests: (Array<Request>) => void
+// |};
 
-export default class RequestTracker<TRequest> {
+export default class RequestTracker {
   runnerMap: Map<string, RequestRunner>;
   requestGraph: RequestGraph;
   invalidRequestIds: Set<string>;
-  incompleteRequestIds: Set<string>;
 
   constructor({
     runnerMap,
@@ -303,13 +307,12 @@ export default class RequestTracker<TRequest> {
     this.runnerMap = runnerMap;
     this.requestGraph = requestGraph || new RequestGraph();
     this.invalidRequestIds = new Set();
-    this.incompleteRequestIds = new Set();
   }
 
   async runRequest(
     type: string,
-    requestDesc: RequestDesc,
-    {signal}: {|signal: ?AbortSignal|} = {}
+    requestDesc: any,
+    {signal}: RunRequestOpts = {}
   ) {
     let id = generateRequestId(type, requestDesc);
     let request = {id, type, request: requestDesc};
@@ -370,13 +373,13 @@ export default class RequestTracker<TRequest> {
     return this.requestGraph.invalidNodeIds.size > 0;
   }
 
-  getInvalidNodes() {
-    let invalidNodes = [];
+  getInvalidRequests(): Array<Request> {
+    let invalidRequests = [];
     for (let id of this.requestGraph.invalidNodeIds) {
-      let node = this.requestGraph.getNode(id);
-      nullthrows(node);
-      invalidNodes.push(node);
+      let node = nullthrows(this.requestGraph.getNode(id));
+      invariant(node.type === 'request');
+      invalidRequests.push(node.value);
     }
-    return invalidNodes;
+    return invalidRequests;
   }
 }

@@ -6,15 +6,17 @@ import type {
   AssetRequestDesc,
   AssetRequestResult,
   Dependency,
-  ParcelOptions
+  ParcelOptions,
+  TransformationOpts
 } from './types';
-import type {RequestRunner, RequestGraph} from './RequestTracker';
+import type {RequestGraph} from './RequestTracker';
 import type AssetGraph from './AssetGraph';
 import type ParcelConfig from './ParcelConfig';
 import type {TargetResolveResult} from './TargetResolver';
 import type {EntryResult} from './EntryResolver'; // ? Is this right
 
 import invariant from 'assert';
+import nullthrows from 'nullthrows';
 import path from 'path';
 import {isGlob} from '@parcel/utils';
 import {nodeFromAssetGroup} from './AssetGraph';
@@ -57,7 +59,7 @@ type DepPathRequest = {|
   result?: AssetRequestDesc
 |};
 
-export class EntryRequestRunner implements RequestRunner {
+export class EntryRequestRunner {
   entryResolver: EntryResolver;
   assetGraph: AssetGraph;
 
@@ -93,7 +95,7 @@ export class EntryRequestRunner implements RequestRunner {
   }
 }
 
-export class TargetRequestRunner implements RequestRunner {
+export class TargetRequestRunner {
   targetResolver: TargetResolver;
   assetGraph: AssetGraph;
 
@@ -127,7 +129,7 @@ export class TargetRequestRunner implements RequestRunner {
   }
 }
 
-export class AssetRequestRunner implements RequestRunner {
+export class AssetRequestRunner {
   options: ParcelOptions;
   runTransform: TransformationOpts => Promise<AssetRequestResult>;
   assetGraph: AssetGraph;
@@ -184,31 +186,37 @@ export class AssetRequestRunner implements RequestRunner {
       let id = generateRequestId('config_request', request);
       let shouldSetupInvalidations =
         graph.invalidNodeIds.has(id) || !graph.hasNode(id);
-      let subrequestNode = graph.addRequest({
-        id,
-        type: 'config_request',
-        request,
-        result
-      });
+      let subrequestNode = nullthrows(
+        graph.addRequest({
+          id,
+          type: 'config_request',
+          request,
+          result
+        })
+      );
+      invariant(subrequestNode.type === 'request');
 
       if (shouldSetupInvalidations) {
         if (result.resolvedPath != null) {
-          graph.invalidateOnFileUpdate(subrequestNode, result.resolvedPath);
+          graph.invalidateOnFileUpdate(
+            subrequestNode.value,
+            result.resolvedPath
+          );
         }
 
         for (let filePath of result.includedFiles) {
-          graph.invalidateOnFileUpdate(subrequestNode, filePath);
+          graph.invalidateOnFileUpdate(subrequestNode.value, filePath);
         }
 
         if (result.watchGlob != null) {
-          graph.invalidateOnFileCreate(subrequestNode, result.watchGlob);
+          graph.invalidateOnFileCreate(subrequestNode.value, result.watchGlob);
         }
 
         if (result.shouldInvalidateOnStartup) {
-          graph.invalidateOnStartup(subrequestNode);
+          graph.invalidateOnStartup(subrequestNode.value);
         }
       }
-      subrequestNodes.push(graph.getNode(id));
+      subrequestNodes.push(subrequestNode);
 
       // Add dep version requests
       for (let [moduleSpecifier, version] of result.devDeps) {
@@ -219,15 +227,21 @@ export class AssetRequestRunner implements RequestRunner {
         let id = generateRequestId('dep_version_request', depVersionRequst);
         let shouldSetupInvalidations =
           graph.invalidNodeIds.has(id) || !graph.hasNode(id);
-        let subrequestNode = graph.addRequest({
-          id,
-          type: 'dep_version_request',
-          request: depVersionRequst,
-          result: version
-        });
+        let subrequestNode = nullthrows(
+          graph.addRequest({
+            id,
+            type: 'dep_version_request',
+            request: depVersionRequst,
+            result: version
+          })
+        );
+        invariant(subrequestNode.type === 'request');
         if (shouldSetupInvalidations) {
           if (this.options.lockFile != null) {
-            graph.invalidateOnFileUpdate(subrequestNode, this.options.lockFile);
+            graph.invalidateOnFileUpdate(
+              subrequestNode.value,
+              this.options.lockFile
+            );
           }
         }
         subrequestNodes.push(subrequestNode);
@@ -236,8 +250,6 @@ export class AssetRequestRunner implements RequestRunner {
 
     graph.replaceSubrequests(request, subrequestNodes);
 
-    return assets;
-
     // TODO: add includedFiles even if it failed so we can try a rebuild if those files change
   }
 }
@@ -245,7 +257,7 @@ export class AssetRequestRunner implements RequestRunner {
 const invertMap = <K, V>(map: Map<K, V>): Map<V, K> =>
   new Map([...map].map(([key, val]) => [val, key]));
 
-export class DepPathRequestRunner implements RequestRunner {
+export class DepPathRequestRunner {
   resolverRunner: ResolverRunner;
   assetGraph: AssetGraph;
 
