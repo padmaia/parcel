@@ -9,7 +9,7 @@ import type {
   ParcelOptions,
   TransformationOpts
 } from './types';
-import type {RequestGraph} from './RequestTracker';
+import type RequestTracker, {RequestRunnerAPI} from './RequestTracker';
 import type AssetGraph from './AssetGraph';
 import type ParcelConfig from './ParcelConfig';
 import type {TargetResolveResult} from './TargetResolver';
@@ -23,7 +23,7 @@ import {nodeFromAssetGroup} from './AssetGraph';
 import ResolverRunner from './ResolverRunner';
 import {EntryResolver} from './EntryResolver';
 import TargetResolver from './TargetResolver';
-import {generateRequestId} from './RequestTracker';
+import {RequestRunner, generateRequestId} from './RequestTracker';
 
 export type AssetGraphBuildRequest =
   | EntryRequest
@@ -59,99 +59,101 @@ type DepPathRequest = {|
   result?: AssetRequestDesc
 |};
 
-export class EntryRequestRunner {
+export class EntryRequestRunner extends RequestRunner<FilePath, EntryResult> {
   entryResolver: EntryResolver;
   assetGraph: AssetGraph;
 
-  constructor({
-    options,
-    assetGraph
-  }: {|
+  constructor(opts: {|
+    tracker: RequestTracker,
     options: ParcelOptions,
     assetGraph: AssetGraph
   |}) {
-    this.entryResolver = new EntryResolver(options);
-    this.assetGraph = assetGraph;
+    super(opts);
+    this.entryResolver = new EntryResolver(opts.options);
+    this.assetGraph = opts.assetGraph;
   }
 
-  run(request: EntryRequest) {
-    return this.entryResolver.resolveEntry(request.request);
+  run(request: FilePath) {
+    return this.entryResolver.resolveEntry(request);
   }
 
-  onComplete(request: EntryRequest, result: EntryResult, graph: RequestGraph) {
-    this.assetGraph.resolveEntry(request.request, result.entries);
+  onComplete(request: FilePath, result: EntryResult, api: RequestRunnerAPI) {
+    this.assetGraph.resolveEntry(request, result.entries);
 
     // Connect files like package.json that affect the entry
     // resolution so we invalidate when they change.
     for (let file of result.files) {
-      graph.invalidateOnFileUpdate(request, file.filePath);
+      api.invalidateOnFileUpdate(file.filePath);
     }
 
     // If the entry specifier is a glob, add a glob node so
     // we invalidate when a new file matches.
-    if (isGlob(request.request)) {
-      graph.invalidateOnFileCreate(request, request.request);
+    if (isGlob(request)) {
+      api.invalidateOnFileCreate(request);
     }
   }
 }
 
-export class TargetRequestRunner {
+export class TargetRequestRunner extends RequestRunner<
+  FilePath,
+  TargetResolveResult
+> {
   targetResolver: TargetResolver;
   assetGraph: AssetGraph;
 
-  constructor({
-    options,
-    assetGraph
-  }: {|
+  constructor(opts: {|
+    tracker: RequestTracker,
     options: ParcelOptions,
     assetGraph: AssetGraph
   |}) {
-    this.targetResolver = new TargetResolver(options);
-    this.assetGraph = assetGraph;
+    super(opts);
+    this.targetResolver = new TargetResolver(opts.options);
+    this.assetGraph = opts.assetGraph;
   }
 
-  run(request: TargetRequest) {
-    return this.targetResolver.resolve(path.dirname(request.request));
+  run(request: FilePath) {
+    return this.targetResolver.resolve(path.dirname(request));
   }
 
   onComplete(
-    request: TargetRequest,
+    request: FilePath,
     result: TargetResolveResult,
-    graph: RequestGraph
+    api: RequestRunnerAPI
   ) {
-    this.assetGraph.resolveTargets(request.request, result.targets);
+    this.assetGraph.resolveTargets(request, result.targets);
 
     // Connect files like package.json that affect the target
     // resolution so we invalidate when they change.
     for (let file of result.files) {
-      graph.invalidateOnFileUpdate(request, file.filePath);
+      api.invalidateOnFileUpdate(file.filePath);
     }
   }
 }
 
-export class AssetRequestRunner {
+export class AssetRequestRunner extends RequestRunner<
+  AssetRequestDesc,
+  AssetRequestResult
+> {
   options: ParcelOptions;
   runTransform: TransformationOpts => Promise<AssetRequestResult>;
   assetGraph: AssetGraph;
 
-  constructor({
-    options,
-    workerFarm,
-    assetGraph
-  }: {|
+  constructor(opts: {|
+    tracker: RequestTracker,
     options: ParcelOptions,
     workerFarm: WorkerFarm,
     assetGraph: AssetGraph
   |}) {
-    this.options = options;
-    this.runTransform = workerFarm.createHandle('runTransform');
-    this.assetGraph = assetGraph;
+    super(opts);
+    this.options = opts.options;
+    this.runTransform = opts.workerFarm.createHandle('runTransform');
+    this.assetGraph = opts.assetGraph;
   }
 
-  async run(request: AssetRequest) {
+  async run(request: AssetRequestDesc) {
     let start = Date.now();
     let {assets, configRequests} = await this.runTransform({
-      request: request.request,
+      request: request,
       options: this.options
     });
 
@@ -163,23 +165,25 @@ export class AssetRequestRunner {
   }
 
   onComplete(
-    request: AssetRequest,
+    request: AssetRequestDesc,
     result: AssetRequestResult,
-    graph: RequestGraph
+    api: RequestRunnerAPI
   ) {
-    this.assetGraph.resolveAssetGroup(request.request, result.assets);
+    this.assetGraph.resolveAssetGroup(request, result.assets);
 
     let {assets, configRequests} = result;
 
-    graph.invalidateOnFileUpdate(request, request.request.filePath);
+    api.invalidateOnFileUpdate(request.filePath);
 
     for (let asset of assets) {
       for (let filePath of asset.includedFiles.keys()) {
-        graph.invalidateOnFileUpdate(request, filePath);
-        graph.invalidateOnFileDelete(request, filePath);
+        api.invalidateOnFileUpdate(filePath);
+        api.invalidateOnFileDelete(filePath);
       }
     }
 
+    // TODO: this should no longer be needed once we have ConfigRequestRunner
+    let graph = this.tracker.graph;
     let subrequestNodes = [];
     // Add config requests
     for (let {request, result} of configRequests) {
@@ -198,22 +202,19 @@ export class AssetRequestRunner {
 
       if (shouldSetupInvalidations) {
         if (result.resolvedPath != null) {
-          graph.invalidateOnFileUpdate(
-            subrequestNode.value,
-            result.resolvedPath
-          );
+          graph.invalidateOnFileUpdate(subrequestNode.id, result.resolvedPath);
         }
 
         for (let filePath of result.includedFiles) {
-          graph.invalidateOnFileUpdate(subrequestNode.value, filePath);
+          graph.invalidateOnFileUpdate(subrequestNode.id, filePath);
         }
 
         if (result.watchGlob != null) {
-          graph.invalidateOnFileCreate(subrequestNode.value, result.watchGlob);
+          graph.invalidateOnFileCreate(subrequestNode.id, result.watchGlob);
         }
 
         if (result.shouldInvalidateOnStartup) {
-          graph.invalidateOnStartup(subrequestNode.value);
+          graph.invalidateOnStartup(subrequestNode.id);
         }
       }
       subrequestNodes.push(subrequestNode);
@@ -239,7 +240,7 @@ export class AssetRequestRunner {
         if (shouldSetupInvalidations) {
           if (this.options.lockFile != null) {
             graph.invalidateOnFileUpdate(
-              subrequestNode.value,
+              subrequestNode.id,
               this.options.lockFile
             );
           }
@@ -248,7 +249,7 @@ export class AssetRequestRunner {
       }
     }
 
-    graph.replaceSubrequests(request, subrequestNodes);
+    api.replaceSubrequests(subrequestNodes);
 
     // TODO: add includedFiles even if it failed so we can try a rebuild if those files change
   }
@@ -257,19 +258,21 @@ export class AssetRequestRunner {
 const invertMap = <K, V>(map: Map<K, V>): Map<V, K> =>
   new Map([...map].map(([key, val]) => [val, key]));
 
-export class DepPathRequestRunner {
+export class DepPathRequestRunner extends RequestRunner<
+  Dependency,
+  AssetRequestDesc
+> {
   resolverRunner: ResolverRunner;
   assetGraph: AssetGraph;
 
-  constructor({
-    options,
-    config,
-    assetGraph
-  }: {|
+  constructor(opts: {|
+    tracker: RequestTracker,
     options: ParcelOptions,
     config: ParcelConfig,
     assetGraph: AssetGraph
   |}) {
+    super(opts);
+    let {options, config, assetGraph} = opts;
     this.resolverRunner = new ResolverRunner({
       options,
       config
@@ -277,16 +280,16 @@ export class DepPathRequestRunner {
     this.assetGraph = assetGraph;
   }
 
-  run(request: DepPathRequest) {
-    return this.resolverRunner.resolve(request.request);
+  run(request: Dependency) {
+    return this.resolverRunner.resolve(request);
   }
 
   onComplete(
-    request: DepPathRequest,
+    request: Dependency,
     result: AssetRequestDesc,
-    graph: RequestGraph
+    api: RequestRunnerAPI
   ) {
-    let dependency = request.request;
+    let dependency = request;
     let assetGroup = result;
     if (!assetGroup) {
       this.assetGraph.resolveDependency(dependency, null);
@@ -328,10 +331,10 @@ export class DepPathRequestRunner {
       }, assetGroupNode);
     }
 
+    // ? Should this happen if asset is deferred?
+    api.invalidateOnFileDelete(result.filePath);
+
     // TODO: invalidate dep path requests that have failed and a file creation may fulfill the request
-    if (result) {
-      graph.invalidateOnFileDelete(request, result.filePath);
-    }
   }
 
   // Defer transforming this dependency if it is marked as weak, there are no side effects,
