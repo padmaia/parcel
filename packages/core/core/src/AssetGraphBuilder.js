@@ -240,9 +240,9 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   handleNodeRemovedFromAssetGraph(node: AssetGraphNode) {
-    let requestType = nullthrows(ASSET_GRAPH_REQUEST_MAPPING.get(node.type));
-    let id = generateRequestId(requestType, node.value);
+    let requestType = ASSET_GRAPH_REQUEST_MAPPING.get(node.type);
     if (requestType != null) {
+      let id = generateRequestId(requestType, node.value);
       this.requestTracker.untrackRequest(id);
     }
   }

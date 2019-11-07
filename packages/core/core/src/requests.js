@@ -69,6 +69,7 @@ export class EntryRequestRunner extends RequestRunner<FilePath, EntryResult> {
     assetGraph: AssetGraph
   |}) {
     super(opts);
+    this.type = 'entry_request';
     this.entryResolver = new EntryResolver(opts.options);
     this.assetGraph = opts.assetGraph;
   }
@@ -107,6 +108,7 @@ export class TargetRequestRunner extends RequestRunner<
     assetGraph: AssetGraph
   |}) {
     super(opts);
+    this.type = 'target_request';
     this.targetResolver = new TargetResolver(opts.options);
     this.assetGraph = opts.assetGraph;
   }
@@ -145,6 +147,7 @@ export class AssetRequestRunner extends RequestRunner<
     assetGraph: AssetGraph
   |}) {
     super(opts);
+    this.type = 'asset_request';
     this.options = opts.options;
     this.runTransform = opts.workerFarm.createHandle('runTransform');
     this.assetGraph = opts.assetGraph;
@@ -272,6 +275,7 @@ export class DepPathRequestRunner extends RequestRunner<
     assetGraph: AssetGraph
   |}) {
     super(opts);
+    this.type = 'dep_path_request';
     let {options, config, assetGraph} = opts;
     this.resolverRunner = new ResolverRunner({
       options,
