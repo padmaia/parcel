@@ -222,28 +222,54 @@ export default class AssetGraphBuilder extends EventEmitter {
     }
   }
 
-  processIncompleteAssetGraphNode(node: AssetGraphNode, signal: ?AbortSignal) {
-    let requestType = nullthrows(
-      ASSET_GRAPH_REQUEST_MAPPING.get(node.type),
-      `AssetGraphNode of type ${node.type} should not be marked incomplete`
-    );
-    let id = generateRequestId(requestType, node.value);
-    let request: AssetGraphBuildRequest = {
-      id,
-      type: requestType,
-      request: node.value
-    };
+  getCorrespondingRequest(node: AssetGraphNode) {
+    switch (node.type) {
+      case 'entry_specifier': {
+        let type = 'entry_request';
+        return {
+          type,
+          request: node.value,
+          id: generateRequestId(type, node.value)
+        };
+      }
+      case 'entry_file': {
+        let type = 'target_request';
+        return {
+          type,
+          request: node.value,
+          id: generateRequestId(type, node.value)
+        };
+      }
+      case 'dependency': {
+        let type = 'dep_path_request';
+        return {
+          type,
+          request: node.value,
+          id: generateRequestId(type, node.value)
+        };
+      }
+      case 'asset_group': {
+        let type = 'asset_request';
+        return {
+          type,
+          request: node.value,
+          id: generateRequestId(type, node.value)
+        };
+      }
+    }
+  }
 
+  processIncompleteAssetGraphNode(node: AssetGraphNode, signal: ?AbortSignal) {
+    let request = nullthrows(this.getCorrespondingRequest(node));
     return this.runRequest(request, {
       signal
     });
   }
 
   handleNodeRemovedFromAssetGraph(node: AssetGraphNode) {
-    let requestType = ASSET_GRAPH_REQUEST_MAPPING.get(node.type);
-    if (requestType != null) {
-      let id = generateRequestId(requestType, node.value);
-      this.requestTracker.untrackRequest(id);
+    let request = this.getCorrespondingRequest(node);
+    if (request != null) {
+      this.requestTracker.untrackRequest(request.id);
     }
   }
 
