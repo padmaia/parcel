@@ -44,23 +44,19 @@ export default class DepPathRequestRunner extends RequestRunner<
     this.assetGraph = assetGraph;
   }
 
-  run(request: Dependency) {
-    return this.resolverRunner.resolve(request);
-  }
-
-  onComplete(
-    request: Dependency,
-    result: DependencyResult,
-    api: RequestRunnerAPI,
-  ) {
+  async run(request: Dependency, api: RequestRunnerAPI) {
     let dependency = request;
-    let assetGroup = result;
+    let assetGroup = await this.resolverRunner.resolve(request);
     if (!assetGroup) {
       this.assetGraph.resolveDependency(dependency, null);
-      return;
+      return assetGroup;
     }
 
-    let defer = this.shouldDeferDependency(dependency, assetGroup.sideEffects);
+    let defer = shouldDeferDependency(
+      dependency,
+      assetGroup.sideEffects,
+      this.assetGraph,
+    );
     dependency.isDeferred = defer;
 
     let assetGroupNode = nodeFromAssetGroup(assetGroup, defer);
@@ -89,7 +85,11 @@ export default class DepPathRequestRunner extends RequestRunner<
           invariant(parent && parent.type === 'dependency');
           if (
             node.deferred &&
-            !this.shouldDeferDependency(parent.value, node.value.sideEffects)
+            !shouldDeferDependency(
+              parent.value,
+              node.value.sideEffects,
+              this.assetGraph,
+            )
           ) {
             parent.value.isDeferred = false;
             node.deferred = false;
@@ -107,40 +107,46 @@ export default class DepPathRequestRunner extends RequestRunner<
     api.invalidateOnFileDelete(assetGroup.filePath);
 
     // TODO: invalidate dep path requests that have failed and a file creation may fulfill the request
-  }
 
-  // Defer transforming this dependency if it is marked as weak, there are no side effects,
-  // no re-exported symbols are used by ancestor dependencies and the re-exporting asset isn't
-  // using a wildcard and isn't an entry (in library mode).
-  // This helps with performance building large libraries like `lodash-es`, which re-exports
-  // a huge number of functions since we can avoid even transforming the files that aren't used.
-  shouldDeferDependency(dependency: Dependency, sideEffects: ?boolean) {
-    let defer = false;
-    if (
-      dependency.isWeak &&
-      sideEffects === false &&
-      !dependency.symbols.has('*')
-    ) {
-      let depNode = this.assetGraph.getNode(dependency.id);
-      invariant(depNode);
-
-      let assets = this.assetGraph.getNodesConnectedTo(depNode);
-      let symbols = invertMap(dependency.symbols);
-      invariant(assets.length === 1);
-      let firstAsset = assets[0];
-      invariant(firstAsset.type === 'asset');
-      let resolvedAsset = firstAsset.value;
-      let deps = this.assetGraph.getIncomingDependencies(resolvedAsset);
-      defer = deps.every(
-        d =>
-          !(d.env.isLibrary && d.isEntry) &&
-          !d.symbols.has('*') &&
-          ![...d.symbols.keys()].some(symbol => {
-            let assetSymbol = resolvedAsset.symbols.get(symbol);
-            return assetSymbol != null && symbols.has(assetSymbol);
-          }),
-      );
-    }
-    return defer;
+    return assetGroup;
   }
+}
+
+// Defer transforming this dependency if it is marked as weak, there are no side effects,
+// no re-exported symbols are used by ancestor dependencies and the re-exporting asset isn't
+// using a wildcard and isn't an entry (in library mode).
+// This helps with performance building large libraries like `lodash-es`, which re-exports
+// a huge number of functions since we can avoid even transforming the files that aren't used.
+function shouldDeferDependency(
+  dependency: Dependency,
+  sideEffects: ?boolean,
+  assetGraph: AssetGraph,
+) {
+  let defer = false;
+  if (
+    dependency.isWeak &&
+    sideEffects === false &&
+    !dependency.symbols.has('*')
+  ) {
+    let depNode = assetGraph.getNode(dependency.id);
+    invariant(depNode);
+
+    let assets = assetGraph.getNodesConnectedTo(depNode);
+    let symbols = invertMap(dependency.symbols);
+    invariant(assets.length === 1);
+    let firstAsset = assets[0];
+    invariant(firstAsset.type === 'asset');
+    let resolvedAsset = firstAsset.value;
+    let deps = assetGraph.getIncomingDependencies(resolvedAsset);
+    defer = deps.every(
+      d =>
+        !(d.env.isLibrary && d.isEntry) &&
+        !d.symbols.has('*') &&
+        ![...d.symbols.keys()].some(symbol => {
+          let assetSymbol = resolvedAsset.symbols.get(symbol);
+          return assetSymbol != null && symbols.has(assetSymbol);
+        }),
+    );
+  }
+  return defer;
 }

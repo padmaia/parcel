@@ -62,17 +62,8 @@ export default class AssetRequestRunner extends RequestRunner<
     for (let asset of assets) {
       asset.stats.time = time;
     }
-    return {assets, configRequests};
-  }
 
-  onComplete(
-    request: AssetRequestDesc,
-    result: AssetRequestResult,
-    api: RequestRunnerAPI,
-  ) {
-    this.assetGraph.resolveAssetGroup(request, result.assets);
-
-    let {assets, configRequests} = result;
+    this.assetGraph.resolveAssetGroup(request, assets);
 
     for (let asset of assets) {
       for (let filePath of asset.includedFiles.keys()) {
@@ -151,5 +142,7 @@ export default class AssetRequestRunner extends RequestRunner<
     api.replaceSubrequests(subrequestNodes);
 
     // TODO: add includedFiles even if it failed so we can try a rebuild if those files change
+
+    return {assets, configRequests};
   }
 }

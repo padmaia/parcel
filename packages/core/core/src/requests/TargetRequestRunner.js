@@ -32,15 +32,9 @@ export default class TargetRequestRunner extends RequestRunner<
     this.assetGraph = opts.assetGraph;
   }
 
-  run(request: Entry) {
-    return this.targetResolver.resolve(request.packagePath);
-  }
+  async run(request: Entry, api: RequestRunnerAPI) {
+    let result = await this.targetResolver.resolve(request.packagePath);
 
-  onComplete(
-    request: Entry,
-    result: TargetResolveResult,
-    api: RequestRunnerAPI,
-  ) {
     this.assetGraph.resolveTargets(request, result.targets);
 
     // Connect files like package.json that affect the target
@@ -48,5 +42,7 @@ export default class TargetRequestRunner extends RequestRunner<
     for (let file of result.files) {
       api.invalidateOnFileUpdate(file.filePath);
     }
+
+    return result;
   }
 }

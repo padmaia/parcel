@@ -404,7 +404,6 @@ export class RequestRunner<TRequest, TResult> {
       if (!this.tracker.isTracked(id)) {
         return;
       }
-      await this.onComplete(requestDesc, result, api);
       this.tracker.completeRequest(id);
 
       return result;
@@ -420,12 +419,6 @@ export class RequestRunner<TRequest, TResult> {
     throw new Error(
       `RequestRunner for type ${this.type} did not implement run()`,
     );
-  }
-
-  // unused vars are used for types
-  // eslint-disable-next-line no-unused-vars
-  onComplete(request: TRequest, result: TResult, api: RequestRunnerAPI) {
-    // Do nothing, this is defined for flow if extended classes implement this function
   }
 
   generateRequestId(request: TRequest) {

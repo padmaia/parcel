@@ -34,11 +34,9 @@ export default class EntryRequestRunner extends RequestRunner<
     this.assetGraph = opts.assetGraph;
   }
 
-  run(request: FilePath) {
-    return this.entryResolver.resolveEntry(request);
-  }
+  async run(request: FilePath, api: RequestRunnerAPI) {
+    let result = await this.entryResolver.resolveEntry(request);
 
-  onComplete(request: FilePath, result: EntryResult, api: RequestRunnerAPI) {
     this.assetGraph.resolveEntry(request, result.entries);
 
     // Connect files like package.json that affect the entry
@@ -52,5 +50,7 @@ export default class EntryRequestRunner extends RequestRunner<
     if (isGlob(request)) {
       api.invalidateOnFileCreate(request);
     }
+
+    return result;
   }
 }
