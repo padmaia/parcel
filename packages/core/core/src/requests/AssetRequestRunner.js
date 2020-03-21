@@ -1,10 +1,12 @@
 // @flow strict-local
 import type WorkerFarm from '@parcel/workers';
-import type AssetGraph from '../AssetGraph';
 import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
 import type {
+  Asset,
   AssetRequestDesc,
   AssetRequestResult,
+  Config,
+  ConfigRequestDesc,
   ParcelOptions,
   TransformationOpts,
 } from '../types';
@@ -27,8 +29,10 @@ export default class AssetRequestRunner extends RequestRunner<
   options: ParcelOptions;
   optionsRef: number;
   configRef: number;
-  runTransform: TransformationOpts => Promise<AssetRequestResult>;
-  assetGraph: AssetGraph;
+  runTransform: TransformationOpts => Promise<{|
+    assets: Array<Asset>,
+    configRequests: Array<{|request: ConfigRequestDesc, result: Config|}>,
+  |}>;
 
   constructor(opts: {|
     tracker: RequestTracker,
@@ -36,7 +40,6 @@ export default class AssetRequestRunner extends RequestRunner<
     optionsRef: number,
     configRef: number,
     workerFarm: WorkerFarm,
-    assetGraph: AssetGraph,
   |}) {
     super(opts);
     this.type = 'asset_request';
@@ -44,7 +47,6 @@ export default class AssetRequestRunner extends RequestRunner<
     this.optionsRef = opts.optionsRef;
     this.configRef = opts.configRef;
     this.runTransform = opts.workerFarm.createHandle('runTransform');
-    this.assetGraph = opts.assetGraph;
   }
 
   async run(request: AssetRequestDesc, api: RequestRunnerAPI) {
@@ -62,8 +64,6 @@ export default class AssetRequestRunner extends RequestRunner<
     for (let asset of assets) {
       asset.stats.time = time;
     }
-
-    this.assetGraph.resolveAssetGroup(request, assets);
 
     for (let asset of assets) {
       for (let filePath of asset.includedFiles.keys()) {
@@ -143,6 +143,6 @@ export default class AssetRequestRunner extends RequestRunner<
 
     // TODO: add includedFiles even if it failed so we can try a rebuild if those files change
 
-    return {assets, configRequests};
+    return assets;
   }
 }

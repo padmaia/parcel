@@ -400,10 +400,6 @@ export class RequestRunner<TRequest, TResult> {
           (this.tracker.getRequestResult(id): any)
         : await this.run(requestDesc, api);
       assertSignalNotAborted(signal);
-      // Request may have been removed by a parent request
-      if (!this.tracker.isTracked(id)) {
-        return;
-      }
       this.tracker.completeRequest(id);
 
       return result;

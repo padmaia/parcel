@@ -1,6 +1,5 @@
 // @flow strict-local
 import type {FilePath} from '@parcel/types';
-import type AssetGraph from '../AssetGraph';
 import type {EntryResult} from '../EntryResolver';
 import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
 import type {ParcelOptions} from '../types';
@@ -21,23 +20,15 @@ export default class EntryRequestRunner extends RequestRunner<
   EntryResult,
 > {
   entryResolver: EntryResolver;
-  assetGraph: AssetGraph;
 
-  constructor(opts: {|
-    tracker: RequestTracker,
-    options: ParcelOptions,
-    assetGraph: AssetGraph,
-  |}) {
+  constructor(opts: {|tracker: RequestTracker, options: ParcelOptions|}) {
     super(opts);
     this.type = 'entry_request';
     this.entryResolver = new EntryResolver(opts.options);
-    this.assetGraph = opts.assetGraph;
   }
 
   async run(request: FilePath, api: RequestRunnerAPI) {
     let result = await this.entryResolver.resolveEntry(request);
-
-    this.assetGraph.resolveEntry(request, result.entries);
 
     // Connect files like package.json that affect the entry
     // resolution so we invalidate when they change.
