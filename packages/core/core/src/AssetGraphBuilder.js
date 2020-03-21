@@ -14,10 +14,10 @@ import type {
   ValidationOpts,
 } from './types';
 import type {RunRequestOpts} from './RequestTracker';
-import type {EntryRequest} from './requests/EntryRequestRunner';
-import type {TargetRequest} from './requests/TargetRequestRunner';
-import type {AssetRequest} from './requests/AssetRequestRunner';
-import type {DepPathRequest} from './requests/DepPathRequestRunner';
+import type {EntryRequest} from './requests/EntryRequest';
+import type {TargetRequest} from './requests/TargetRequest';
+import type {AssetRequest} from './requests/AssetRequest';
+import type {DepPathRequest} from './requests/PathRequest';
 
 import EventEmitter from 'events';
 import nullthrows from 'nullthrows';
@@ -31,11 +31,11 @@ import RequestTracker, {
 import {PARCEL_VERSION} from './constants';
 import ParcelConfig from './ParcelConfig';
 
-import ParcelConfigRequestRunner from './requests/ParcelConfigRequestRunner';
-import EntryRequestRunner from './requests/EntryRequestRunner';
-import TargetRequestRunner from './requests/TargetRequestRunner';
-import AssetRequestRunner from './requests/AssetRequestRunner';
-import DepPathRequestRunner from './requests/DepPathRequestRunner';
+import ParcelConfigRequestRunner from './requests/ParcelConfigRequest';
+import EntryRequestRunner from './requests/EntryRequest';
+import TargetRequestRunner from './requests/TargetRequest';
+import AssetRequestRunner from './requests/AssetRequest';
+import DepPathRequestRunner from './requests/PathRequest';
 
 import dumpToGraphViz from './dumpGraphToGraphViz';
 
@@ -127,21 +127,13 @@ export default class AssetGraphBuilder extends EventEmitter {
 
     this.requestTracker = new RequestTracker({
       graph: this.requestGraph,
+      farm: workerFarm,
+      options: this.options,
     });
     let tracker = this.requestTracker;
-    this.entryRequestRunner = new EntryRequestRunner({
-      tracker,
-      options,
-    });
-    this.targetRequestRunner = new TargetRequestRunner({
-      tracker,
-      options,
-    });
-    this.configRequestRunner = new ParcelConfigRequestRunner({
-      tracker,
-      options,
-      workerFarm,
-    });
+    this.entryRequestRunner = new EntryRequestRunner({tracker});
+    this.targetRequestRunner = new TargetRequestRunner({tracker});
+    this.configRequestRunner = new ParcelConfigRequestRunner({tracker});
 
     if (changes) {
       this.requestGraph.invalidateUnpredictableNodes();
@@ -161,7 +153,8 @@ export default class AssetGraphBuilder extends EventEmitter {
     changedAssets: Map<string, Asset>,
   |}> {
     let {config, configRef} = nullthrows(
-      await this.configRequestRunner.runRequest(null, {
+      await this.configRequestRunner.runRequest({
+        request: null,
         signal,
       }),
     );
@@ -170,19 +163,9 @@ export default class AssetGraphBuilder extends EventEmitter {
     if (configRef !== this.configRef) {
       this.configRef = configRef;
       this.config = new ParcelConfig(config, this.options.packageManager);
-      let {requestTracker: tracker, options, optionsRef, workerFarm} = this;
-      this.assetRequestRunner = new AssetRequestRunner({
-        tracker,
-        options,
-        optionsRef,
-        configRef,
-        workerFarm,
-      });
-      this.depPathRequestRunner = new DepPathRequestRunner({
-        tracker,
-        options,
-        config: this.config,
-      });
+      let {requestTracker: tracker} = this;
+      this.assetRequestRunner = new AssetRequestRunner({tracker});
+      this.depPathRequestRunner = new DepPathRequestRunner({tracker});
     }
 
     this.rejected = new Map();
@@ -279,7 +262,10 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   async runEntryRequest(request: FilePath, runOpts: RunRequestOpts) {
-    let result = await this.entryRequestRunner.runRequest(request, runOpts);
+    let result = await this.entryRequestRunner.runRequest({
+      request,
+      ...runOpts,
+    });
     // TODO: shouldn't need this check, improve request graph types
     if (result != null) {
       this.assetGraph.resolveEntry(request, result.entries);
@@ -287,20 +273,36 @@ export default class AssetGraphBuilder extends EventEmitter {
   }
 
   async runTargetRequest(request: Entry, runOpts: RunRequestOpts) {
-    let result = await this.targetRequestRunner.runRequest(request, runOpts);
+    let result = await this.targetRequestRunner.runRequest({
+      request,
+      ...runOpts,
+    });
     if (result != null) {
       this.assetGraph.resolveTargets(request, result.targets);
     }
   }
 
   async runDepPathRequest(request: Dependency, runOpts: RunRequestOpts) {
-    let result = await this.depPathRequestRunner.runRequest(request, runOpts);
+    let result = await this.depPathRequestRunner.runRequest({
+      request,
+      extras: {
+        config: this.config,
+      },
+      ...runOpts,
+    });
     this.assetGraph.resolveDependency(request, result);
   }
 
   async runAssetRequest(request: AssetRequestDesc, runOpts: RunRequestOpts) {
     this.assetRequests.push(request);
-    let assets = await this.assetRequestRunner.runRequest(request, runOpts);
+    let assets = await this.assetRequestRunner.runRequest({
+      request,
+      extras: {
+        configRef: this.configRef,
+        optionsRef: this.optionsRef,
+      },
+      ...runOpts,
+    });
     if (assets != null) {
       for (let asset of assets) {
         this.changedAssets.set(asset.id, asset);

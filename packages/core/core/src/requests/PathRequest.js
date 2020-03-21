@@ -1,7 +1,7 @@
 // @flow strict-local
 import type {Diagnostic} from '@parcel/diagnostic';
 import type ParcelConfig from '../ParcelConfig';
-import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
+import type {StaticRunOpts, RequestRunnerOpts} from '../RequestTracker';
 import type {AssetRequestDesc, Dependency, ParcelOptions} from '../types';
 
 import ThrowableDiagnostic, {errorToDiagnostic} from '@parcel/diagnostic';
@@ -23,28 +23,29 @@ export type DepPathRequest = {|
   result?: DependencyResult,
 |};
 
+type RunOpts = {|
+  request: Dependency,
+  ...StaticRunOpts,
+|};
+
+// export default function createPathRequest(opts: DepPathRequestOpts) {
+//   return new DepPathRequestRunner(opts);
+// }
+
 export default class DepPathRequestRunner extends RequestRunner<
   Dependency,
   DependencyResult,
 > {
-  resolverRunner: ResolverRunner;
-
-  constructor(opts: {|
-    tracker: RequestTracker,
-    options: ParcelOptions,
-    config: ParcelConfig,
-  |}) {
+  constructor(opts: RequestRunnerOpts) {
     super(opts);
     this.type = 'dep_path_request';
-    let {options, config} = opts;
-    this.resolverRunner = new ResolverRunner({
-      options,
-      config,
-    });
   }
 
-  async run(request: Dependency, api: RequestRunnerAPI) {
-    let assetGroup = await this.resolverRunner.resolve(request);
+  async run({request, api, options, extras}: RunOpts) {
+    // $FlowFixMe
+    let {config}: {|config: ParcelConfig|} = (extras: any);
+    let resolverRunner = new ResolverRunner({options, config});
+    let assetGroup = await resolverRunner.resolve(request);
 
     // ? Should this happen if asset is deferred?
     if (assetGroup != null) {

@@ -1,7 +1,7 @@
 // @flow strict-local
 import type {FileSystem} from '@parcel/fs';
 import type {FilePath, File} from '@parcel/types';
-import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
+import type {StaticRunOpts, RequestRunnerOpts} from '../RequestTracker';
 import type {Entry, ParcelOptions} from '../types';
 
 import {isGlob, glob} from '@parcel/utils';
@@ -20,20 +20,27 @@ type EntryResult = {|
   files: Array<File>,
 |};
 
+type RunOpts = {|
+  request: FilePath,
+  ...StaticRunOpts,
+|};
+
+// export default function createEntryRequest(opts: EntryRequestOpts) {
+//   return new EntryRequestRunner(opts);
+// }
+
 export default class EntryRequestRunner extends RequestRunner<
   FilePath,
   EntryResult,
 > {
-  entryResolver: EntryResolver;
-
-  constructor(opts: {|tracker: RequestTracker, options: ParcelOptions|}) {
+  constructor(opts: RequestRunnerOpts) {
     super(opts);
     this.type = 'entry_request';
-    this.entryResolver = new EntryResolver(opts.options);
   }
 
-  async run(request: FilePath, api: RequestRunnerAPI) {
-    let result = await this.entryResolver.resolveEntry(request);
+  async run({request, api, options}: RunOpts) {
+    let entryResolver = new EntryResolver(options);
+    let result = await entryResolver.resolveEntry(request);
 
     // Connect files like package.json that affect the entry
     // resolution so we invalidate when they change.

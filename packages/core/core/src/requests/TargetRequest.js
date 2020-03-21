@@ -9,7 +9,7 @@ import type {
   PackageTargetDescriptor,
   TargetDescriptor,
 } from '@parcel/types';
-import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
+import type {StaticRunOpts, RequestRunnerOpts} from '../RequestTracker';
 import type {Entry, ParcelOptions, Target} from '../types';
 
 import ThrowableDiagnostic, {
@@ -34,6 +34,11 @@ import {RequestRunner} from '../RequestTracker';
 type TargetResolveResult = {|
   targets: Array<Target>,
   files: Array<File>,
+|};
+
+type RunOpts = {|
+  request: Entry,
+  ...StaticRunOpts,
 |};
 
 const DEFAULT_DEVELOPMENT_ENGINES = {
@@ -61,20 +66,22 @@ export type TargetRequest = {|
   result?: TargetResolveResult,
 |};
 
+// export default function createTargetRequest(opts: TargetResolverOpts) {
+//   return new TargetRequestRunner(opts);
+// }
+
 export default class TargetRequestRunner extends RequestRunner<
   Entry,
   TargetResolveResult,
 > {
-  targetResolver: TargetResolver;
-
-  constructor(opts: {|tracker: RequestTracker, options: ParcelOptions|}) {
+  constructor(opts: RequestRunnerOpts) {
     super(opts);
     this.type = 'target_request';
-    this.targetResolver = new TargetResolver(opts.options);
   }
 
-  async run(request: Entry, api: RequestRunnerAPI) {
-    let result = await this.targetResolver.resolve(request.packagePath);
+  async run({request, api, options}: RunOpts) {
+    let targetResolver = new TargetResolver(options);
+    let result = await targetResolver.resolve(request.packagePath);
 
     // Connect files like package.json that affect the target
     // resolution so we invalidate when they change.

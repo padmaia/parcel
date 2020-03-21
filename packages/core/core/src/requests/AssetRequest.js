@@ -1,13 +1,12 @@
 // @flow strict-local
 import type WorkerFarm from '@parcel/workers';
-import type RequestTracker, {RequestRunnerAPI} from '../RequestTracker';
+import type {StaticRunOpts, RequestRunnerOpts} from '../RequestTracker';
 import type {
   Asset,
   AssetRequestDesc,
   AssetRequestResult,
   Config,
   ConfigRequestDesc,
-  ParcelOptions,
   TransformationOpts,
 } from '../types';
 
@@ -22,42 +21,59 @@ export type AssetRequest = {|
   result?: AssetRequestResult,
 |};
 
+type RunOpts = {|
+  request: AssetRequestDesc,
+  ...StaticRunOpts,
+|};
+
+// export default function createAssetRequest(opts: AssetRequestOpts) {
+//   return new AssetRequestRunner(opts);
+// }
+
+let handle;
+function getRunTransform(
+  farm: WorkerFarm,
+): TransformationOpts => Promise<{|
+  assets: Array<Asset>,
+  configRequests: Array<{|request: ConfigRequestDesc, result: Config|}>,
+|}> {
+  if (handle != null) {
+    return handle;
+  }
+
+  handle = farm.createHandle('runTransform');
+  return handle;
+}
+
 export default class AssetRequestRunner extends RequestRunner<
   AssetRequestDesc,
   AssetRequestResult,
 > {
-  options: ParcelOptions;
-  optionsRef: number;
-  configRef: number;
   runTransform: TransformationOpts => Promise<{|
     assets: Array<Asset>,
     configRequests: Array<{|request: ConfigRequestDesc, result: Config|}>,
   |}>;
 
-  constructor(opts: {|
-    tracker: RequestTracker,
-    options: ParcelOptions,
-    optionsRef: number,
-    configRef: number,
-    workerFarm: WorkerFarm,
-  |}) {
+  constructor(opts: RequestRunnerOpts) {
     super(opts);
     this.type = 'asset_request';
-    this.options = opts.options;
-    this.optionsRef = opts.optionsRef;
-    this.configRef = opts.configRef;
-    this.runTransform = opts.workerFarm.createHandle('runTransform');
   }
 
-  async run(request: AssetRequestDesc, api: RequestRunnerAPI) {
+  async run({request, api, options, farm, extras}: RunOpts) {
     api.invalidateOnFileUpdate(
-      await this.options.inputFS.realpath(request.filePath),
+      await options.inputFS.realpath(request.filePath),
     );
     let start = Date.now();
-    let {assets, configRequests} = await this.runTransform({
-      request: request,
-      optionsRef: this.optionsRef,
-      configRef: this.configRef,
+
+    let {
+      optionsRef,
+      configRef,
+    }: // $FlowFixMe
+    {|optionsRef: number, configRef: number|} = (extras: any);
+    let {assets, configRequests} = await getRunTransform(farm)({
+      request,
+      optionsRef,
+      configRef,
     });
 
     let time = Date.now() - start;
@@ -128,11 +144,8 @@ export default class AssetRequestRunner extends RequestRunner<
         );
         invariant(subrequestNode.type === 'request');
         if (shouldSetupInvalidations) {
-          if (this.options.lockFile != null) {
-            graph.invalidateOnFileUpdate(
-              subrequestNode.id,
-              this.options.lockFile,
-            );
+          if (options.lockFile != null) {
+            graph.invalidateOnFileUpdate(subrequestNode.id, options.lockFile);
           }
         }
         subrequestNodes.push(subrequestNode);
